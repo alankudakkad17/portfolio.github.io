@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,7 +93,7 @@
     align-items: center;
     gap: 2rem;
     border-bottom: 1px solid var(--border);
-    background: var(--nav-bg);
+    background: rgba(5,10,14,0.85);
     backdrop-filter: blur(20px);
     transition: background 0.35s, border-color 0.35s;
   }
@@ -129,6 +129,7 @@
   .nav-links a.active { color: var(--accent); }
   .nav-links a.active::after { transform: scaleX(1); }
 
+  /* HERO */
   /* ── THEME TOGGLE ── */
   .theme-toggle {
     background: transparent;
@@ -179,9 +180,6 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     animation: glowPulse 4s ease-in-out infinite;
-  }
-  [data-theme="light"] .hero-glow {
-    background: radial-gradient(circle, rgba(0,120,153,0.07) 0%, transparent 70%);
   }
   @keyframes glowPulse {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
@@ -254,7 +252,7 @@
   }
   .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-primary:hover {
-    background: var(--text);
+    background: #fff;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0,229,255,0.2);
   }
@@ -369,10 +367,6 @@
     letter-spacing: 0.05em;
     transition: all 0.2s;
   }
-  [data-theme="light"] .skill-tag {
-    background: rgba(0,120,153,0.07);
-    border-color: rgba(0,120,153,0.2);
-  }
   .skill-tag:hover { background: rgba(0,229,255,0.15); border-color: var(--accent); color: var(--accent); }
 
   /* ── PROJECTS ── */
@@ -411,7 +405,6 @@
     color: var(--accent);
     background: rgba(0,229,255,0.04);
   }
-  [data-theme="light"] .stack-tag { background: rgba(0,120,153,0.06); }
 
   /* ── EXPERIENCE ── */
   .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
@@ -543,6 +536,7 @@
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
+
   <div class="hero-tag">AI Engineer & Researcher</div>
   <h1>
     Alan<br>
@@ -564,6 +558,7 @@
       Download CV
     </a>
   </div>
+
   <div class="hero-stats">
     <div class="stat">
       <span class="stat-num">11+</span>
@@ -864,6 +859,17 @@ tool logic and maintain state during complex agent handoffs.</div>
   })();
 
   document.querySelectorAll('a, button, .project-card, .skill-category').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(2)';
+      cursorRing.style.transform = 'scale(1.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      cursorRing.style.transform = 'scale(1)';
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
     el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; cursorRing.style.transform = 'scale(1.5)'; });
     el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursorRing.style.transform = 'scale(1)'; });
   });
