@@ -486,7 +486,7 @@
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">11+</span>
+      <span class="stat-num">13+</span>
       <span class="stat-label">Projects</span>
     </div>
     <div class="stat">
@@ -547,7 +547,7 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">Agentic AI Frameworks</div>
       <div class="skill-tags">
-        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">BeeAI</span><span class="skill-tag">CrewAI</span><span class="skill-tag">LlamaIndex</span>
+        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">BeeAI</span><span class="skill-tag">CrewAI</span><span class="skill-tag">LlamaIndex</span><span class="skill-tag">Google ADK</span>
       </div>
     </div>
     <div class="skill-category reveal">
@@ -559,13 +559,13 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">Databases</div>
       <div class="skill-tags">
-        <span class="skill-tag">MySQL</span><span class="skill-tag">ChromaDB</span><span class="skill-tag">FAISS</span><span class="skill-tag">VectorDB</span><span class="skill-tag">GraphDB</span><span class="skill-tag">BM25</span>
+        <span class="skill-tag">MySQL</span><span class="skill-tag">ChromaDB</span><span class="skill-tag">FAISS</span><span class="skill-tag">VectorDB</span><span class="skill-tag">Neo4j</span><span class="skill-tag">GraphDB</span><span class="skill-tag">BM25</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Cloud & Tools</div>
       <div class="skill-tags">
-        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">IBM WatsonX</span><span class="skill-tag">Docker</span><span class="skill-tag">Gradio</span><span class="skill-tag">REST API</span><span class="skill-tag">RECT</span>
+        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">IBM WatsonX</span><span class="skill-tag">Docker</span><span class="skill-tag">Gradio</span><span class="skill-tag">REST API</span><span class="skill-tag">Ollama</span>
       </div>
     </div>
   </div>
@@ -582,99 +582,116 @@
 
     <div class="project-card reveal">
       <div class="project-num">001 —</div>
-      <div class="project-title">DocChat – Multi-Agent RAG System</div>
-      <div class="project-desc">Multi-agent RAG workflow using LangGraph with relevance checking, research generation, and fact-verification. Self-correction loop ensures zero hallucinations. Reduced retrieval failure rate by 40% via Hybrid BM25 + ChromaDB retrieval, improving answer accuracy by 30%.</div>
+      <div class="project-title">Agentic Code Editor</div>
+      <div class="project-desc">Hierarchical multi-agent code editor using Google ADK, orchestrating 8 specialized agents (Code Generation, Debugger, Reviewer, Test Writer, etc.) with an LLM-powered Orchestrator that autonomously routes tasks, achieving end-to-end automated code synthesis from plain English input. Eliminated infrastructure cost entirely by integrating Groq's free-tier API with LiteLLM, routing complex reasoning to LLaMA 3.3 70B and lightweight tasks to LLaMA 3.1 8B. Delivers real-time conversational coding via Google ADK's async event stream with Streamlit's reactive UI, rendering live agent transitions token-by-token without blocking the main thread.</div>
       <div class="project-stack">
-        <span class="stack-tag">LangGraph</span><span class="stack-tag">LangChain</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span><span class="stack-tag">Gradio</span>
+        <span class="stack-tag">Google ADK</span><span class="stack-tag">Groq API</span><span class="stack-tag">LiteLLM</span><span class="stack-tag">Streamlit</span><span class="stack-tag">Python</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">002 —</div>
-      <div class="project-title">Autonomous Multi-Agent Travel System</div>
-      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and handoff protocols.Reduced user-perceived latency by 65% for reasoning tasks by developing an asynchronous FastAPI backend that streams realtime agent trajectories and tool events via SSE to a React UI.Enhanced LLM reliability by implementing strict execution guardrails using BeeAI RequirementAgents to enforce conditional
-tool logic and maintain state during complex agent handoffs.</div>
+      <div class="project-title">DocChat – Multi-Agent RAG System</div>
+      <div class="project-desc">Improved answer accuracy by 30% by architecting a LangGraph self-correction loop that auto-retries on verified generated response failures. Optimized retrieval by building a Hybrid Retriever that fuses BM25 lexical search with ChromaDB dense embeddings, resulting in a 40% reduction in overall retrieval failure rates. Built a production-ready web app with a Gradio interface, Docker containerization, and IBM WatsonX integration, delivering a scalable document intelligence platform with automated verification.</div>
       <div class="project-stack">
-        <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">Fast API</span><span class="stack-tag">React</span><span class="stack-tag">Async</span>
+        <span class="stack-tag">LangGraph</span><span class="stack-tag">LangChain</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span><span class="stack-tag">Gradio</span><span class="stack-tag">Docker</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">003 —</div>
+      <div class="project-title">Automotive Graph RAG System</div>
+      <div class="project-desc">Engineered a hybrid Graph-RAG pipeline combining Neo4j knowledge graph and ChromaDB vector store for BMW 7 Series automotive data, modelling vehicles, engines, features, recalls and diagnostic codes as 10 node types with 13 relationships, improving retrieval accuracy by 40% over standard flat RAG systems. Reduced irrelevant context reaching the LLM by 70% via a LangGraph 8-node agent pipeline with dynamic query expansion, dual-layer routing and cross-encoder reranking. Deployed a 100% local open-source stack — Ollama Llama 3, sentence-transformers, Neo4j Community and ChromaDB — with a FastAPI backend and Gradio frontend featuring live graph visualization and PDF ingestion.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Neo4j</span><span class="stack-tag">LangGraph</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Gradio</span><span class="stack-tag">Ollama</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">004 —</div>
+      <div class="project-title">Autonomous Multi-Agent Travel System</div>
+      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and handoff protocols. Reduced user-perceived latency by 65% for reasoning tasks by developing an asynchronous FastAPI backend that streams realtime agent trajectories and tool events via SSE to a React UI. Enhanced LLM reliability by implementing strict execution guardrails using BeeAI RequirementAgents to enforce conditional tool logic and maintain state during complex agent handoffs.</div>
+      <div class="project-stack">
+        <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">FastAPI</span><span class="stack-tag">React</span><span class="stack-tag">Async</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">005 —</div>
       <div class="project-title">AI NutriCoach (NourishBot)</div>
-      <div class="project-desc">Vision-powered nutrition assistant achieving 90% object detection accuracy via Llama 3 Vision. Dual CrewAI agents deliver personalized dietary plans in under 3 seconds. Zero structured output errors across 500+ responses via strict Pydantic schemas.</div>
+      <div class="project-desc">Developed a multi-agent nutrition assistant that detects ingredients, generates recipes, and analyzes nutrients using Llama 3 Vision and WatsonX Granite models. Designed dual workflows for recipe generation and meal nutrient analysis, supporting dietary filters, calorie goals, and macro/micro-nutrient estimation. Structured outputs using Pydantic models and built a user-friendly Gradio interface to visualize recipes and detailed nutrition insights.</div>
       <div class="project-stack">
         <span class="stack-tag">CrewAI</span><span class="stack-tag">Llama 3 Vision</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Pydantic</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">004 —</div>
+      <div class="project-num">006 —</div>
       <div class="project-title">RAG-Based LinkedIn Icebreaker Tool</div>
-      <div class="project-desc">RAG-powered profile analysis tool generating personalized conversation starters from LinkedIn data. End-to-end pipeline using ProxyCurl API, WatsonX Granite generation, and Slate embeddings for semantic vector search.</div>
+      <div class="project-desc">Developed a RAG-powered profile analysis tool that generates personalized conversation starters from LinkedIn data using LlamaIndex. Integrated IBM WatsonX Granite for generation and Slate embeddings for semantic vector search to answer profile-specific queries. Built an end-to-end data pipeline using ProxyCurl API to fetch real-time data, convert it into vector stores, and serve insights via a Gradio UI.</div>
       <div class="project-stack">
         <span class="stack-tag">LlamaIndex</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">ProxyCurl</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">005 —</div>
+      <div class="project-num">007 —</div>
       <div class="project-title">Meeting Intelligence Tool</div>
-      <div class="project-desc">Automated meeting intelligence system reducing post-meeting documentation time by 90% via Whisper STT + WatsonX summarization. NLP pipeline with audio preprocessing, speaker diarization, and LLM-based context extraction.</div>
+      <div class="project-desc">Engineered an automated meeting intelligence system that reduced post-meeting documentation time by 90% using Whisper STT + WatsonX summarization. Built a dashboard for meeting insights allowing users to review and export summaries, decisions, and action items in an interactive UI. Implemented an NLP pipeline with audio preprocessing, speaker diarization, and LLM-based context extraction for structured meeting insights.</div>
       <div class="project-stack">
-        <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack-tag">Streamlit</span>
+        <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">006 —</div>
+      <div class="project-num">008 —</div>
       <div class="project-title">YouTube Video Summarizer & Q&A</div>
-      <div class="project-desc">End-to-end video summarization and Q&A system using WatsonX Llama 3. Semantic RAG pipeline with chunking, Slate embeddings, and FAISS indexing delivers accurate, context-aware answers from video transcripts.</div>
+      <div class="project-desc">Built an end-to-end video summarization and Q&A system that extracts transcripts, preprocesses them, and generates high-quality summaries using WatsonX Llama 3. Developed a semantic Q&A RAG pipeline using chunking, Slate embeddings, and FAISS indexing to deliver accurate, context-aware answers. Designed a seamless Gradio interface integrating transcript fetching, summarization, and Q&A for an intuitive user experience.</div>
       <div class="project-stack">
         <span class="stack-tag">WatsonX Llama 3</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">FAISS</span><span class="stack-tag">LangChain</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">007 —</div>
+      <div class="project-num">009 —</div>
       <div class="project-title">SQL & LLM Agent System</div>
-      <div class="project-desc">AI-powered SQL agent converting natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Deterministic and creative LLM workflows for structured + unstructured data in a unified agent architecture.</div>
+      <div class="project-desc">Built an AI-powered SQL agent that converts natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Configured deterministic and creative LLM workflows for structured data queries and general Q&A. Enabled seamless interaction with structured and unstructured data in a unified agent architecture.</div>
       <div class="project-stack">
         <span class="stack-tag">WatsonX Granite</span><span class="stack-tag">LangChain</span><span class="stack-tag">MySQL</span><span class="stack-tag">NL-SQL Agents</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">008 —</div>
-      <div class="project-title">QLoRA LLM Fine-Tuning</div>
-      <div class="project-desc">QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved 95% improvement in model response accuracy with LoRA adapter fusion and 4-bit quantization.</div>
+      <div class="project-num">010 —</div>
+      <div class="project-title">QLoRA-Based Conversational LLM Fine-Tuning</div>
+      <div class="project-desc">Developed a QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved a 95% improvement in model response accuracy with LoRA adapter fusion and 4-bit quantization. Built a complete training workflow with Transformers, PEFT, Datasets, bitsandbytes, and Trainer API on a custom comment dataset.</div>
       <div class="project-stack">
         <span class="stack-tag">Mistral-7B</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">PEFT</span><span class="stack-tag">bitsandbytes</span><span class="stack-tag">Trainer API</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">009 —</div>
+      <div class="project-num">011 —</div>
       <div class="project-title">Semantic SQL Injection Detection</div>
-      <div class="project-desc">BERT-based semantic intrusion detection system for real-time identification and classification of SQL injection attacks with over 95% accuracy. Web interface with automated email alerts for improved administrator response times.</div>
+      <div class="project-desc">Developed a semantic detection system using BERT, enabling real-time identification and classification of SQL injection attacks with over 95% accuracy. Integrated the model into a web interface with automated email alerts, improving administrator response times. Employed Python, TensorFlow, SQL, and SMTP for seamless system deployment and communication.</div>
       <div class="project-stack">
         <span class="stack-tag">BERT</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">SMTP</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">010 —</div>
+      <div class="project-num">012 —</div>
       <div class="project-title">Autonomous Robot — Supermarket Restocking</div>
-      <div class="project-desc">Autonomous wheeled robot for real-time product detection and restocking. YOLOv8 integration achieves 90% detection accuracy. Line-following algorithms and OpenCV enable robust navigation. Published at IEEE ICTEST 2025.</div>
+      <div class="project-desc">Designed and deployed an autonomous robot system for real-time product detection and restocking in supermarkets, achieving efficient, fully automated workflows. Led the integration of YOLOv8 for live object detection, increasing product detection accuracy to 90%. Utilized Python, OpenCV, Raspberry Pi, and line-following algorithms for robust robot navigation and control. Published at IEEE ICTEST 2025.</div>
       <div class="project-stack">
         <span class="stack-tag">YOLOv8</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Raspberry Pi</span><span class="stack-tag">Python</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">011 —</div>
+      <div class="project-num">013 —</div>
       <div class="project-title">Aircraft Damage Classification & Captioning</div>
-      <div class="project-desc">Automated aircraft damage assessment using deep learning. VGG16-based classification and Transformer-based BLIP captioning achieve 92% accuracy, significantly reducing manual maintenance reporting.</div>
+      <div class="project-desc">Automated aircraft damage assessment with deep learning, enabling rapid classification and captioning for maintenance reporting. Developed VGG16-based classification and Transformer-based BLIP captioning models, achieving 92% accuracy and reducing manual reporting work. Implemented with Python, TensorFlow, Hugging Face and NumPy for end-to-end workflow efficiency.</div>
       <div class="project-stack">
         <span class="stack-tag">VGG16</span><span class="stack-tag">BLIP</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">NumPy</span>
       </div>
