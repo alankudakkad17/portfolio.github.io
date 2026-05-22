@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,19 +16,6 @@
     --text: #E8F0F5;
     --muted: #5A7A8A;
     --border: rgba(0,229,255,0.12);
-    --nav-bg: rgba(5,10,14,0.85);
-  }
-
-  [data-theme="light"] {
-    --bg: #EEF3F8;
-    --surface: #F8FBFD;
-    --accent: #007899;
-    --accent2: #5540CC;
-    --accent3: #D44F20;
-    --text: #0A1520;
-    --muted: #3D5A6A;
-    --border: rgba(0,120,153,0.18);
-    --nav-bg: rgba(238,243,248,0.92);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,7 +27,6 @@
     font-family: 'Space Mono', monospace;
     overflow-x: hidden;
     cursor: none;
-    transition: background 0.3s, color 0.3s;
   }
 
   .cursor {
@@ -53,7 +39,6 @@
     transition: transform 0.15s ease;
     mix-blend-mode: difference;
   }
-  [data-theme="light"] .cursor { mix-blend-mode: normal; }
   .cursor-ring {
     width: 36px; height: 36px;
     border: 1px solid var(--accent);
@@ -69,12 +54,10 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9990;
-    opacity: 0.04;
   }
-  [data-theme="light"] body::before { opacity: 0.02; }
 
   /* NAV */
   nav {
@@ -86,9 +69,8 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border);
-    background: var(--nav-bg);
+    background: rgba(5,10,14,0.85);
     backdrop-filter: blur(20px);
-    transition: background 0.3s;
   }
   .nav-logo {
     font-family: 'Syne', sans-serif;
@@ -98,7 +80,6 @@
     color: var(--accent);
     text-decoration: none;
   }
-  .nav-right { display: flex; align-items: center; gap: 2.5rem; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
     color: var(--muted);
@@ -109,26 +90,6 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
-
-  /* THEME TOGGLE */
-  .theme-toggle {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--accent);
-    width: 36px; height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: border-color 0.25s, background 0.25s;
-  }
-  .theme-toggle:hover { border-color: var(--accent); background: rgba(0,229,255,0.08); }
-  .theme-toggle svg { width: 15px; height: 15px; }
-  .icon-sun { display: none; }
-  .icon-moon { display: block; }
-  [data-theme="light"] .icon-sun { display: block; }
-  [data-theme="light"] .icon-moon { display: none; }
 
   /* HERO */
   #hero {
@@ -160,9 +121,6 @@
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     animation: glowPulse 4s ease-in-out infinite;
-  }
-  [data-theme="light"] .hero-glow {
-    background: radial-gradient(circle, rgba(0,120,153,0.07) 0%, transparent 70%);
   }
   @keyframes glowPulse {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
@@ -235,7 +193,7 @@
   }
   .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-primary:hover {
-    background: var(--text);
+    background: #fff;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0,229,255,0.3);
   }
@@ -350,10 +308,6 @@
     letter-spacing: 0.05em;
     transition: all 0.2s;
   }
-  [data-theme="light"] .skill-tag {
-    background: rgba(0,120,153,0.07);
-    border-color: rgba(0,120,153,0.2);
-  }
   .skill-tag:hover { background: rgba(0,229,255,0.15); border-color: var(--accent); color: var(--accent); }
 
   /* PROJECTS */
@@ -391,7 +345,6 @@
     color: var(--accent);
     background: rgba(0,229,255,0.04);
   }
-  [data-theme="light"] .stack-tag { background: rgba(0,120,153,0.06); }
 
   /* EXPERIENCE */
   .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
@@ -495,35 +448,25 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">AA_</a>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </button>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
+
   <div class="hero-tag">AI Engineer & Researcher</div>
-  <h1>Alan<br><span class="outline">Anto</span></h1>
+  <h1>
+    Alan<br>
+    <span class="outline">Anto</span>
+  </h1>
   <p class="hero-sub">
     Building intelligent systems at the frontier of Agentic AI, RAG, and Computer Vision.
     Currently pursuing MSc in Artificial Intelligence at BTU Cottbus, Germany.
@@ -540,6 +483,7 @@
       Download CV
     </a>
   </div>
+
   <div class="hero-stats">
     <div class="stat">
       <span class="stat-num">13+</span>
@@ -857,22 +801,16 @@
   animateRing();
 
   document.querySelectorAll('a, button, .project-card, .skill-category').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; cursorRing.style.transform = 'scale(1.5)'; });
-    el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursorRing.style.transform = 'scale(1)'; });
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(2)';
+      cursorRing.style.transform = 'scale(1.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      cursorRing.style.transform = 'scale(1)';
+    });
   });
 
-  /* THEME TOGGLE */
-  const html = document.documentElement;
-  const saved = localStorage.getItem('theme');
-  if (saved) html.setAttribute('data-theme', saved);
-
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-
-  /* SCROLL REVEAL */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
