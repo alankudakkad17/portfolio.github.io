@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alan Anto — AI Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  /* ── DARK THEME (default) ── */
   :root {
     --bg: #050A0E;
     --surface: #0D1B24;
@@ -17,24 +16,6 @@
     --text: #E8F0F5;
     --muted: #5A7A8A;
     --border: rgba(0,229,255,0.12);
-    --nav-bg: rgba(5,10,14,0.88);
-    --noise-opacity: 0.01;
-    --scrollbar-thumb: #00E5FF;
-  }
-
-  /* ── LIGHT THEME ── */
-  [data-theme="light"] {
-    --bg: #EEF3F8;
-    --surface: #F8FBFD;
-    --accent: #007899;
-    --accent2: #5540CC;
-    --accent3: #D44F20;
-    --text: #0A1520;
-    --muted: #3D5A6A;
-    --border: rgba(0,120,153,0.18);
-    --nav-bg: rgba(238,243,248,0.92);
-    --noise-opacity: 0.005;
-    --scrollbar-thumb: #007899;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,10 +27,6 @@
     font-family: 'Space Mono', monospace;
     overflow-x: hidden;
     cursor: none;
-    transition: background 0.35s, color 0.35s;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 
   .cursor {
@@ -61,10 +38,6 @@
     z-index: 9999;
     transition: transform 0.15s ease;
     mix-blend-mode: difference;
-    will-change: transform;
-  }
-  [data-theme="light"] .cursor {
-    mix-blend-mode: normal;
   }
   .cursor-ring {
     width: 36px; height: 36px;
@@ -75,21 +48,18 @@
     z-index: 9998;
     transition: all 0.35s ease;
     opacity: 0.5;
-    will-change: transform;
   }
 
   body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='256' height='256' fill='%23050A0E' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
-    background-size: 256px 256px;
-    opacity: var(--noise-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9990;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -98,11 +68,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
     border-bottom: 1px solid var(--border);
     background: rgba(5,10,14,0.85);
     backdrop-filter: blur(20px);
-    transition: background 0.35s, border-color 0.35s;
   }
   .nav-logo {
     font-family: 'Syne', sans-serif;
@@ -120,44 +88,10 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     transition: color 0.2s;
-    position: relative;
   }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0; right: 0;
-    height: 1px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.25s;
-  }
-  .nav-links a:hover,
-  .nav-links a.active { color: var(--accent); }
-  .nav-links a.active::after { transform: scaleX(1); }
+  .nav-links a:hover { color: var(--accent); }
 
   /* HERO */
-  /* ── THEME TOGGLE ── */
-  .theme-toggle {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    width: 36px; height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: border-color 0.25s, color 0.25s;
-  }
-  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-  .theme-toggle svg { width: 15px; height: 15px; }
-  .icon-sun { display: none; }
-  .icon-moon { display: block; }
-  [data-theme="light"] .icon-sun { display: block; }
-  [data-theme="light"] .icon-moon { display: none; }
-
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -177,8 +111,8 @@
     animation: gridPulse 8s ease-in-out infinite;
   }
   @keyframes gridPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
   }
   .hero-glow {
     position: absolute;
@@ -219,12 +153,10 @@
     position: relative;
     opacity: 0;
     animation: fadeUp 0.8s 0.4s forwards;
-    -webkit-font-smoothing: antialiased;
   }
   h1 .outline {
-    -webkit-text-stroke: 0.5px var(--accent);
+    -webkit-text-stroke: 1px var(--accent);
     color: transparent;
-    paint-order: stroke fill;
   }
   .hero-sub {
     font-size: clamp(0.85rem, 1.5vw, 1rem);
@@ -263,7 +195,7 @@
   .btn-primary:hover {
     background: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,229,255,0.2);
+    box-shadow: 0 10px 30px rgba(0,229,255,0.3);
   }
   .btn-outline {
     background: transparent;
@@ -304,14 +236,14 @@
     text-transform: uppercase;
   }
 
-  /* ── SECTIONS ── */
+  /* SECTIONS */
   section { padding: 8rem 3rem; position: relative; }
   .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 4rem; }
   .section-num { font-family: 'Syne', sans-serif; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.2em; }
   .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -0.02em; }
   .section-line { flex: 1; height: 1px; background: var(--border); }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   #about { background: var(--surface); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .about-text p { color: var(--muted); line-height: 2; font-size: 0.88rem; margin-bottom: 1.25rem; }
@@ -335,7 +267,7 @@
   .edu-school { color: var(--accent); font-size: 0.75rem; margin-bottom: 0.3rem; }
   .edu-date { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.1em; }
 
-  /* ── SKILLS ── */
+  /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
   .skill-category {
     border: 1px solid var(--border);
@@ -378,7 +310,7 @@
   }
   .skill-tag:hover { background: rgba(0,229,255,0.15); border-color: var(--accent); color: var(--accent); }
 
-  /* ── PROJECTS ── */
+  /* PROJECTS */
   #projects { background: var(--surface); }
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
   .project-card {
@@ -399,8 +331,7 @@
     transform-origin: left;
     transition: transform 0.3s;
   }
-  .project-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-  [data-theme="light"] .project-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+  .project-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
   .project-card:hover::before { transform: scaleX(1); }
   .project-num { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em; margin-bottom: 1rem; }
   .project-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.3; }
@@ -415,7 +346,7 @@
     background: rgba(0,229,255,0.04);
   }
 
-  /* ── EXPERIENCE ── */
+  /* EXPERIENCE */
   .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
   .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
   .exp-org { font-size: 0.72rem; color: var(--muted); }
@@ -424,7 +355,7 @@
   .exp-points li { font-size: 0.78rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; }
   .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
-  /* ── CERTS ── */
+  /* CERTS */
   .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
   .cert-card { border: 1px solid var(--border); padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: all 0.25s; }
   .cert-card:hover { border-color: var(--accent); background: rgba(0,229,255,0.03); }
@@ -432,7 +363,7 @@
   .cert-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.82rem; margin-bottom: 0.3rem; line-height: 1.35; }
   .cert-date { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; }
 
-  /* ── PUBLICATION ── */
+  /* PUBLICATION */
   .pub-card {
     border: 1px solid var(--border);
     padding: 2rem;
@@ -453,17 +384,14 @@
   .pub-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; line-height: 1.4; }
   .pub-date { font-size: 0.68rem; color: var(--muted); }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   #contact { text-align: center; padding: 8rem 3rem; background: var(--surface); position: relative; overflow: hidden; }
   .contact-glow {
     position: absolute;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(123,97,255,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, transparent 70%);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-  }
-  [data-theme="light"] .contact-glow {
-    background: radial-gradient(circle, rgba(85,64,204,0.05) 0%, transparent 70%);
   }
   .contact-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.03em; margin-bottom: 1.5rem; position: relative; }
   .contact-title .highlight { color: var(--accent); }
@@ -483,11 +411,11 @@
   }
   .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); background: rgba(0,229,255,0.04); }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
 
-  /* ── ANIMATIONS ── */
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -497,7 +425,7 @@
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); }
 
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -527,18 +455,6 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-    </svg>
-    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-      <circle cx="12" cy="12" r="5"/>
-      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-  </button>
 </nav>
 
 <!-- HERO -->
@@ -559,7 +475,7 @@
     <a href="#projects" class="btn btn-primary">View Projects</a>
     <a href="#contact" class="btn btn-outline">Get in Touch</a>
     <a href="cv.pdf" download="Alan_Anto_CV.pdf" class="btn btn-outline">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
@@ -570,7 +486,7 @@
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">11+</span>
+      <span class="stat-num">13+</span>
       <span class="stat-label">Projects</span>
     </div>
     <div class="stat">
@@ -590,8 +506,8 @@
   <div class="about-grid">
     <div class="about-text reveal">
       <p>I'm an AI Engineer, based in <span>Germany</span>, where I'm pursuing my MSc in Artificial Intelligence at Brandenburg University of Technology.</p>
-      <p>My work sits at the intersection of <span>Agentic AI, Large Language Models, and Computer Vision</span>. I specialize in building multi-agent systems, RAG pipelines, and production-grade ML solutions that solve real-world problems at scale.</p>
-      <p>I hold a B.Tech (Hons.) in AI & Data Science with a <span>9.1/10 GPA</span>, and have earned professional certifications from IBM, AWS, and Microsoft. My work has been published at IEEE conferences.</p>
+      <p>My work sits at the intersection of <span>Agentic AI, Large Language Models, and Computer Vision</span>. I specialize in building multi-agent systems, RAG pipelines, and production-grade AI applications using frameworks like LangGraph, BeeAI, and CrewAI.</p>
+      <p>I hold a B.Tech (Hons.) in AI & Data Science with a <span>9.1/10 GPA</span>, and have earned professional certifications from IBM, AWS, and Microsoft. My work has been published at IEEE international conferences.</p>
     </div>
     <div class="reveal">
       <div class="edu-card">
@@ -625,31 +541,31 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">GenAI & NLP</div>
       <div class="skill-tags">
-        <span class="skill-tag">LLMs</span><span class="skill-tag">Transformers</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">RAG</span><span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">LLMs</span><span class="skill-tag">Transformers</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">RAG</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">QLoRA</span><span class="skill-tag">PEFT</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Agentic AI Frameworks</div>
       <div class="skill-tags">
-        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">BeeAI</span><span class="skill-tag">CrewAI</span><span class="skill-tag">LlamaIndex</span>
+        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">BeeAI</span><span class="skill-tag">CrewAI</span><span class="skill-tag">LlamaIndex</span><span class="skill-tag">Google ADK</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">ML & Computer Vision</div>
       <div class="skill-tags">
-        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">OpenCV</span><span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">OpenCV</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">YOLOv8</span><span class="skill-tag">BERT</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Databases</div>
       <div class="skill-tags">
-        <span class="skill-tag">MySQL</span><span class="skill-tag">ChromaDB</span><span class="skill-tag">FAISS</span><span class="skill-tag">VectorDB</span><span class="skill-tag">GraphDB</span>
+        <span class="skill-tag">MySQL</span><span class="skill-tag">ChromaDB</span><span class="skill-tag">FAISS</span><span class="skill-tag">VectorDB</span><span class="skill-tag">Neo4j</span><span class="skill-tag">GraphDB</span><span class="skill-tag">BM25</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Cloud & Tools</div>
       <div class="skill-tags">
-        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">IBM WatsonX</span><span class="skill-tag">Docker</span><span class="skill-tag">Gradio</span><span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">IBM WatsonX</span><span class="skill-tag">Docker</span><span class="skill-tag">Gradio</span><span class="skill-tag">REST API</span><span class="skill-tag">Ollama</span>
       </div>
     </div>
   </div>
@@ -666,98 +582,116 @@
 
     <div class="project-card reveal">
       <div class="project-num">001 —</div>
-      <div class="project-title">DocChat – Multi-Agent RAG System</div>
-      <div class="project-desc">Multi-agent RAG workflow using LangGraph with relevance checking, research generation, and fact-verification. Self-correction loop ensures zero hallucinations. Reduced query latency by 40%.</div>
+      <div class="project-title">Agentic Code Editor</div>
+      <div class="project-desc">Hierarchical multi-agent code editor using Google ADK, orchestrating 8 specialized agents (Code Generation, Debugger, Reviewer, Test Writer, etc.) with an LLM-powered Orchestrator that autonomously routes tasks, achieving end-to-end automated code synthesis from plain English input. Eliminated infrastructure cost entirely by integrating Groq's free-tier API with LiteLLM, routing complex reasoning to LLaMA 3.3 70B and lightweight tasks to LLaMA 3.1 8B. Delivers real-time conversational coding via Google ADK's async event stream with Streamlit's reactive UI, rendering live agent transitions token-by-token without blocking the main thread.</div>
       <div class="project-stack">
-        <span class="stack-tag">LangGraph</span><span class="stack-tag">LangChain</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span>
+        <span class="stack-tag">Google ADK</span><span class="stack-tag">Groq API</span><span class="stack-tag">LiteLLM</span><span class="stack-tag">Streamlit</span><span class="stack-tag">Python</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">002 —</div>
-      <div class="project-title">Autonomous Multi-Agent Travel System</div>
-      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and dynamic tool orchestration. Maintains state during complex agent handoffs.</div>
+      <div class="project-title">DocChat – Multi-Agent RAG System</div>
+      <div class="project-desc">Improved answer accuracy by 30% by architecting a LangGraph self-correction loop that auto-retries on verified generated response failures. Optimized retrieval by building a Hybrid Retriever that fuses BM25 lexical search with ChromaDB dense embeddings, resulting in a 40% reduction in overall retrieval failure rates. Built a production-ready web app with a Gradio interface, Docker containerization, and IBM WatsonX integration, delivering a scalable document intelligence platform with automated verification.</div>
       <div class="project-stack">
-        <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">Fast API</span><span class="stack-tag">React</span><span class="stack-tag">Async</span>
+        <span class="stack-tag">LangGraph</span><span class="stack-tag">LangChain</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span><span class="stack-tag">Gradio</span><span class="stack-tag">Docker</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">003 —</div>
-      <div class="project-title">AI NutriCoach (NourishBot)</div>
-      <div class="project-desc">Vision-powered nutrition assistant achieving 90% object detection accuracy via Llama 3 Vision. Dual CrewAI agents deliver personalized dietary plans in under 3 seconds.</div>
+      <div class="project-title">Automotive Graph RAG System</div>
+      <div class="project-desc">Engineered a hybrid Graph-RAG pipeline combining Neo4j knowledge graph and ChromaDB vector store for BMW 7 Series automotive data, modelling vehicles, engines, features, recalls and diagnostic codes as 10 node types with 13 relationships, improving retrieval accuracy by 40% over standard flat RAG systems. Reduced irrelevant context reaching the LLM by 70% via a LangGraph 8-node agent pipeline with dynamic query expansion, dual-layer routing and cross-encoder reranking. Deployed a 100% local open-source stack — Ollama Llama 3, sentence-transformers, Neo4j Community and ChromaDB — with a FastAPI backend and Gradio frontend featuring live graph visualization and PDF ingestion.</div>
       <div class="project-stack">
-        <span class="stack-tag">CrewAI</span><span class="stack-tag">Llama 3 Vision</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Pydantic</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">Neo4j</span><span class="stack-tag">LangGraph</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Gradio</span><span class="stack-tag">Ollama</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">004 —</div>
-      <div class="project-title">RAG-Based LinkedIn Icebreaker Tool</div>
-      <div class="project-desc">RAG-powered profile analysis tool generating personalized conversation starters from LinkedIn data. End-to-end pipeline using ProxyCurl API, WatsonX Granite generation, and semantic similarity.</div>
+      <div class="project-title">Autonomous Multi-Agent Travel System</div>
+      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and handoff protocols. Reduced user-perceived latency by 65% for reasoning tasks by developing an asynchronous FastAPI backend that streams realtime agent trajectories and tool events via SSE to a React UI. Enhanced LLM reliability by implementing strict execution guardrails using BeeAI RequirementAgents to enforce conditional tool logic and maintain state during complex agent handoffs.</div>
       <div class="project-stack">
-        <span class="stack-tag">LlamaIndex</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">ProxyCurl</span><span class="stack-tag">ChromaDB</span>
+        <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">FastAPI</span><span class="stack-tag">React</span><span class="stack-tag">Async</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">005 —</div>
-      <div class="project-title">Meeting Intelligence Tool</div>
-      <div class="project-desc">Automated meeting intelligence system reducing post-meeting documentation time by 90% via Whisper STT + WatsonX summarization. NLP pipeline with audio preprocessing and speaker identification.</div>
+      <div class="project-title">AI NutriCoach (NourishBot)</div>
+      <div class="project-desc">Developed a multi-agent nutrition assistant that detects ingredients, generates recipes, and analyzes nutrients using Llama 3 Vision and WatsonX Granite models. Designed dual workflows for recipe generation and meal nutrient analysis, supporting dietary filters, calorie goals, and macro/micro-nutrient estimation. Structured outputs using Pydantic models and built a user-friendly Gradio interface to visualize recipes and detailed nutrition insights.</div>
       <div class="project-stack">
-        <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">CrewAI</span><span class="stack-tag">Llama 3 Vision</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Pydantic</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">006 —</div>
-      <div class="project-title">YouTube Video Summarizer & Q&A</div>
-      <div class="project-desc">End-to-end video summarization and Q&A system using WatsonX Llama 3. Semantic RAG pipeline with chunking, Slate embeddings, and FAISS indexing delivers accurate, context-aware responses.</div>
+      <div class="project-title">RAG-Based LinkedIn Icebreaker Tool</div>
+      <div class="project-desc">Developed a RAG-powered profile analysis tool that generates personalized conversation starters from LinkedIn data using LlamaIndex. Integrated IBM WatsonX Granite for generation and Slate embeddings for semantic vector search to answer profile-specific queries. Built an end-to-end data pipeline using ProxyCurl API to fetch real-time data, convert it into vector stores, and serve insights via a Gradio UI.</div>
       <div class="project-stack">
-        <span class="stack-tag">WatsonX Llama 3</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">FAISS</span><span class="stack-tag">LangChain</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">LlamaIndex</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">ProxyCurl</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">007 —</div>
+      <div class="project-title">Meeting Intelligence Tool</div>
+      <div class="project-desc">Engineered an automated meeting intelligence system that reduced post-meeting documentation time by 90% using Whisper STT + WatsonX summarization. Built a dashboard for meeting insights allowing users to review and export summaries, decisions, and action items in an interactive UI. Implemented an NLP pipeline with audio preprocessing, speaker diarization, and LLM-based context extraction for structured meeting insights.</div>
+      <div class="project-stack">
+        <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack-tag">Gradio</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">008 —</div>
+      <div class="project-title">YouTube Video Summarizer & Q&A</div>
+      <div class="project-desc">Built an end-to-end video summarization and Q&A system that extracts transcripts, preprocesses them, and generates high-quality summaries using WatsonX Llama 3. Developed a semantic Q&A RAG pipeline using chunking, Slate embeddings, and FAISS indexing to deliver accurate, context-aware answers. Designed a seamless Gradio interface integrating transcript fetching, summarization, and Q&A for an intuitive user experience.</div>
+      <div class="project-stack">
+        <span class="stack-tag">WatsonX Llama 3</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">FAISS</span><span class="stack-tag">LangChain</span><span class="stack-tag">Gradio</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">009 —</div>
       <div class="project-title">SQL & LLM Agent System</div>
-      <div class="project-desc">AI-powered SQL agent converting natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Deterministic and creative LLM workflows for query generation.</div>
+      <div class="project-desc">Built an AI-powered SQL agent that converts natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Configured deterministic and creative LLM workflows for structured data queries and general Q&A. Enabled seamless interaction with structured and unstructured data in a unified agent architecture.</div>
       <div class="project-stack">
         <span class="stack-tag">WatsonX Granite</span><span class="stack-tag">LangChain</span><span class="stack-tag">MySQL</span><span class="stack-tag">NL-SQL Agents</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">008 —</div>
-      <div class="project-title">QLoRA LLM Fine-Tuning</div>
-      <div class="project-desc">QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved 95% improvement in model response accuracy.</div>
+      <div class="project-num">010 —</div>
+      <div class="project-title">QLoRA-Based Conversational LLM Fine-Tuning</div>
+      <div class="project-desc">Developed a QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved a 95% improvement in model response accuracy with LoRA adapter fusion and 4-bit quantization. Built a complete training workflow with Transformers, PEFT, Datasets, bitsandbytes, and Trainer API on a custom comment dataset.</div>
       <div class="project-stack">
-        <span class="stack-tag">Mistral-7B</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">PEFT</span><span class="stack-tag">bitsandbytes</span><span class="stack-tag">Transformers</span>
+        <span class="stack-tag">Mistral-7B</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">PEFT</span><span class="stack-tag">bitsandbytes</span><span class="stack-tag">Trainer API</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">009 —</div>
+      <div class="project-num">011 —</div>
       <div class="project-title">Semantic SQL Injection Detection</div>
-      <div class="project-desc">BERT-based semantic intrusion detection system for real-time identification and classification of SQL injection attacks with over 95% accuracy. Web interface with alerting.</div>
+      <div class="project-desc">Developed a semantic detection system using BERT, enabling real-time identification and classification of SQL injection attacks with over 95% accuracy. Integrated the model into a web interface with automated email alerts, improving administrator response times. Employed Python, TensorFlow, SQL, and SMTP for seamless system deployment and communication.</div>
       <div class="project-stack">
         <span class="stack-tag">BERT</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">SMTP</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">010 —</div>
+      <div class="project-num">012 —</div>
       <div class="project-title">Autonomous Robot — Supermarket Restocking</div>
-      <div class="project-desc">Autonomous wheeled robot for real-time product detection and restocking. YOLOv8 integration achieves 90% detection accuracy. Line-following algorithms and OpenCV for navigation.</div>
+      <div class="project-desc">Designed and deployed an autonomous robot system for real-time product detection and restocking in supermarkets, achieving efficient, fully automated workflows. Led the integration of YOLOv8 for live object detection, increasing product detection accuracy to 90%. Utilized Python, OpenCV, Raspberry Pi, and line-following algorithms for robust robot navigation and control. Published at IEEE ICTEST 2025.</div>
       <div class="project-stack">
         <span class="stack-tag">YOLOv8</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Raspberry Pi</span><span class="stack-tag">Python</span>
       </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">011 —</div>
+      <div class="project-num">013 —</div>
       <div class="project-title">Aircraft Damage Classification & Captioning</div>
-      <div class="project-desc">Automated aircraft damage assessment using deep learning. VGG16-based classification and Transformer-based BLIP captioning achieve 92% accuracy, significantly reducing inspection time.</div>
+      <div class="project-desc">Automated aircraft damage assessment with deep learning, enabling rapid classification and captioning for maintenance reporting. Developed VGG16-based classification and Transformer-based BLIP captioning models, achieving 92% accuracy and reducing manual reporting work. Implemented with Python, TensorFlow, Hugging Face and NumPy for end-to-end workflow efficiency.</div>
       <div class="project-stack">
         <span class="stack-tag">VGG16</span><span class="stack-tag">BLIP</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">NumPy</span>
       </div>
@@ -847,7 +781,6 @@
 </footer>
 
 <script>
-  /* ── CURSOR ── */
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -855,16 +788,17 @@
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cursor.style.left = mx - 6 + 'px';
-    cursor.style.top  = my - 6 + 'px';
+    cursor.style.top = my - 6 + 'px';
   });
 
-  (function animateRing() {
+  function animateRing() {
     rx += (mx - rx) * 0.12;
     ry += (my - ry) * 0.12;
     cursorRing.style.left = rx - 18 + 'px';
-    cursorRing.style.top  = ry - 18 + 'px';
+    cursorRing.style.top = ry - 18 + 'px';
     requestAnimationFrame(animateRing);
-  })();
+  }
+  animateRing();
 
   document.querySelectorAll('a, button, .project-card, .skill-category').forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -880,50 +814,13 @@
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el = entry.target;
-        el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; cursorRing.style.transform = 'scale(1.5)'; });
-        el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursorRing.style.transform = 'scale(1)'; });
-      }
-    });
-  });
-
-  /* ── THEME TOGGLE ── */
-  const html = document.documentElement;
-  const toggleBtn = document.getElementById('themeToggle');
-  html.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
-
-  toggleBtn.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-
-  /* ── ACTIVE NAV ── */
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const navObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        if (link) link.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-
-  document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
-
-  /* ── SCROLL REVEAL ── */
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
         setTimeout(() => entry.target.classList.add('visible'), 80);
-        revealObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
