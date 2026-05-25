@@ -397,6 +397,16 @@
 
   html.light-mode .skill-tag:hover { background: rgba(0,102,204,0.15); }
 
+
+  /* EXPERIENCE */
+  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); transition: border-color 0.3s ease; }
+  .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .exp-org { font-size: 0.72rem; color: var(--muted); transition: color 0.3s ease; }
+  .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; }
+  .exp-points { list-style: none; }
+  .exp-points li { font-size: 0.78rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; transition: color 0.3s ease; }
+  .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  
   /* PROJECTS */
   #projects { background: var(--surface); }
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
@@ -441,14 +451,7 @@
     background: rgba(0,102,204,0.04);
   }
 
-  /* EXPERIENCE */
-  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); transition: border-color 0.3s ease; }
-  .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-  .exp-org { font-size: 0.72rem; color: var(--muted); transition: color 0.3s ease; }
-  .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; }
-  .exp-points { list-style: none; }
-  .exp-points li { font-size: 0.78rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; transition: color 0.3s ease; }
-  .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  
 
   /* CERTS */
   .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
