@@ -120,6 +120,15 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
+  .nav-links a.active { color: var(--accent); position: relative; }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--accent);
+  }
 
   /* THEME TOGGLE */
   .theme-toggle {
@@ -633,7 +642,6 @@
     Currently pursuing MSc in Artificial Intelligence at BTU Cottbus, Germany.
   </p>
   <div class="hero-cta">
-    <a href="#experience" class="btn btn-primary">Explore Work</a>
     <a href="#contact" class="btn btn-outline">Get in Touch</a>
     <a href="cv.pdf" download="Alan_Anto_CV.pdf" class="btn btn-outline">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px">
@@ -907,23 +915,33 @@
   </div>
   <div class="certs-grid">
     <div class="cert-card reveal">
-      <div class="cert-icon">🏆</div>
+      <div class="cert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.56 14.42L7 22l5-3 5 3-1.56-7.58"/></svg>
+      </div>
       <div><div class="cert-name">IBM RAG and Agentic AI Professional Certificate</div><div class="cert-date">Dec 2025</div></div>
     </div>
     <div class="cert-card reveal">
-      <div class="cert-icon">☁️</div>
+      <div class="cert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 0 1 0 9Z"/></svg>
+      </div>
       <div><div class="cert-name">AWS Generative AI for Developers Professional Certificate</div><div class="cert-date">Oct 2025</div></div>
     </div>
     <div class="cert-card reveal">
-      <div class="cert-icon">🐳</div>
+      <div class="cert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="4" rx="1"/><rect x="2" y="13" width="20" height="4" rx="1"/><rect x="6" y="3" width="12" height="4" rx="1"/></svg>
+      </div>
       <div><div class="cert-name">Docker Foundations Professional Certificate</div><div class="cert-date">Nov 2025</div></div>
     </div>
     <div class="cert-card reveal">
-      <div class="cert-icon">🤖</div>
+      <div class="cert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+      </div>
       <div><div class="cert-name">IBM AI Engineering Professional Certificate</div><div class="cert-date">Jul 2025</div></div>
     </div>
     <div class="cert-card reveal">
-      <div class="cert-icon">🌐</div>
+      <div class="cert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
       <div><div class="cert-name">Microsoft Azure AI Essentials Professional Certificate</div><div class="cert-date">Aug 2025</div></div>
     </div>
   </div>
@@ -1018,6 +1036,17 @@
       });
     });
   }
+
+  // Active nav highlight
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const pageSections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    pageSections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+    });
+    navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  }, { passive: true });
 
   // Scroll-to-top button
   const scrollTopBtn = document.getElementById('scrollTop');
