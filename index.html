@@ -535,6 +535,34 @@
   ::-webkit-scrollbar-track { background: var(--bg); transition: background-color 0.3s ease; }
   ::-webkit-scrollbar-thumb { background: var(--accent); transition: background-color 0.3s ease; }
 
+  /* SCROLL TO TOP */
+  .scroll-top {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 44px;
+    height: 44px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s, transform 0.25s, background 0.2s;
+    pointer-events: none;
+  }
+  .scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .scroll-top:hover { background: #fff; }
+  html.light-mode .scroll-top:hover { background: var(--bg); }
+
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     section { padding: 5rem 1.5rem; }
@@ -553,6 +581,11 @@
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
 
 <!-- NAV -->
 <nav>
@@ -560,9 +593,10 @@
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
@@ -599,7 +633,7 @@
     Currently pursuing MSc in Artificial Intelligence at BTU Cottbus, Germany.
   </p>
   <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#experience" class="btn btn-primary">Explore Work</a>
     <a href="#contact" class="btn btn-outline">Get in Touch</a>
     <a href="cv.pdf" download="Alan_Anto_CV.pdf" class="btn btn-outline">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px">
@@ -651,10 +685,33 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">02.</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-item reveal">
+    <div class="exp-meta">
+      <div class="exp-period">Jun 2023 — Aug 2023</div>
+      <div class="exp-org">Indian Institute of Information Technology, Kerala</div>
+    </div>
+    <div>
+      <div class="exp-role">AI Engineering Intern</div>
+      <ul class="exp-points">
+        <li>Achieved real-time inference at 30 FPS on edge devices by optimizing YOLOv8 object detection models for limited hardware.</li>
+        <li>Improved model robustness by 15% against environmental variations by engineering an automated OpenCV pipeline augmenting 5,000+ training images with noise and rotation injection.</li>
+        <li>Established production-grade baselines for 4 computer vision algorithms by designing a systematic evaluation framework with precision-recall benchmarks under edge constraints.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-header reveal">
-    <span class="section-num">02.</span>
+    <span class="section-num">03.</span>
     <h2 class="section-title">Skills</h2>
     <div class="section-line"></div>
   </div>
@@ -701,7 +758,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header reveal">
-    <span class="section-num">03.</span>
+    <span class="section-num">04.</span>
     <h2 class="section-title">Projects</h2>
     <div class="section-line"></div>
   </div>
@@ -827,41 +884,24 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
+<!-- PUBLICATIONS -->
+<section id="publications">
   <div class="section-header reveal">
-    <span class="section-num">04.</span>
-    <h2 class="section-title">Experience</h2>
+    <span class="section-num">05.</span>
+    <h2 class="section-title">Publications</h2>
     <div class="section-line"></div>
   </div>
-  <div class="exp-item reveal">
-    <div class="exp-meta">
-      <div class="exp-period">Jun 2023 — Aug 2023</div>
-      <div class="exp-org">Indian Institute of Information Technology, Kerala</div>
-    </div>
-    <div>
-      <div class="exp-role">AI Engineering Intern</div>
-      <ul class="exp-points">
-        <li>Achieved real-time inference at 30 FPS on edge devices by optimizing YOLOv8 object detection models for limited hardware.</li>
-        <li>Improved model robustness by 15% against environmental variations by engineering an automated OpenCV pipeline augmenting 5,000+ training images with noise and rotation injection.</li>
-        <li>Established production-grade baselines for 4 computer vision algorithms by designing a systematic evaluation framework with precision-recall benchmarks under edge constraints.</li>
-      </ul>
-    </div>
-  </div>
-  <div style="margin-top: 4rem;" class="reveal">
-    <h3 style="font-family:'Syne',sans-serif; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem;">Publications</h3>
-    <div class="pub-card">
-      <div class="pub-venue">IEEE 2nd International Conference on Trends in Engineering Systems & Technologies (ICTEST)</div>
-      <div class="pub-title">Autonomous Wheeled Robot for Intelligent Supermarket Restocking</div>
-      <div class="pub-date">Jun 2025</div>
-    </div>
+  <div class="pub-card reveal">
+    <div class="pub-venue">IEEE 2nd International Conference on Trends in Engineering Systems & Technologies (ICTEST)</div>
+    <div class="pub-title">Autonomous Wheeled Robot for Intelligent Supermarket Restocking</div>
+    <div class="pub-date">Jun 2025</div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section id="certs" style="background: var(--surface);">
   <div class="section-header reveal">
-    <span class="section-num">05.</span>
+    <span class="section-num">06.</span>
     <h2 class="section-title">Certifications</h2>
     <div class="section-line"></div>
   </div>
@@ -908,65 +948,85 @@
 </footer>
 
 <script>
+  // Safe localStorage wrapper — throws in Safari private mode / some WebViews
+  const storage = (() => {
+    try { localStorage.getItem('_'); return localStorage; } catch (_) { return { getItem: () => null, setItem: () => {} }; }
+  })();
+
   // Theme Toggle
   const themeToggle = document.getElementById('themeToggle');
   const sunIcon = document.getElementById('sunIcon');
   const moonIcon = document.getElementById('moonIcon');
   const html = document.documentElement;
 
-  // Load saved theme preference
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const savedTheme = storage.getItem('theme') || 'dark';
   if (savedTheme === 'light') {
     html.classList.add('light-mode');
     sunIcon.style.display = 'none';
     moonIcon.style.display = 'block';
   }
 
-  // Toggle theme
   themeToggle.addEventListener('click', () => {
     html.classList.toggle('light-mode');
     const isLightMode = html.classList.contains('light-mode');
-    
-    // Update icons
     sunIcon.style.display = isLightMode ? 'none' : 'block';
     moonIcon.style.display = isLightMode ? 'block' : 'none';
-    
-    // Save preference
-    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    storage.setItem('theme', isLightMode ? 'light' : 'dark');
   });
 
-  // Cursor animation
+  // Custom cursor — skip on touch-only devices
+  const isTouchOnly = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx - 6 + 'px';
-    cursor.style.top = my - 6 + 'px';
-  });
+  if (isTouchOnly) {
+    cursor.style.display = 'none';
+    cursorRing.style.display = 'none';
+    document.body.style.cursor = '';
+  } else {
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    let rafId = null;
 
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    cursorRing.style.left = rx - 18 + 'px';
-    cursorRing.style.top = ry - 18 + 'px';
-    requestAnimationFrame(animateRing);
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx - 6 + 'px';
+      cursor.style.top = my - 6 + 'px';
+    });
+
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursorRing.style.left = rx - 18 + 'px';
+      cursorRing.style.top = ry - 18 + 'px';
+      rafId = requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { cancelAnimationFrame(rafId); }
+      else { animateRing(); }
+    });
+
+    document.querySelectorAll('a, button, .project-card, .skill-category').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(2)';
+        cursorRing.style.transform = 'scale(1.5)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        cursorRing.style.transform = 'scale(1)';
+      });
+    });
   }
-  animateRing();
 
-  document.querySelectorAll('a, button, .project-card, .skill-category').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'scale(2)';
-      cursorRing.style.transform = 'scale(1.5)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'scale(1)';
-      cursorRing.style.transform = 'scale(1)';
-    });
+  // Scroll-to-top button
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
   });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Scroll reveal animation
+  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
