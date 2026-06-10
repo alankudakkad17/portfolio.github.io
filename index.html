@@ -66,14 +66,14 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOc[...]
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='256' height='256' fill='%23050A0E' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 9990;
     transition: opacity 0.3s ease;
   }
 
   html.light-mode body::before {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOc[...]
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='256' height='256' fill='%23F8F9FA' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
 
   /* NAV */
@@ -327,7 +327,7 @@
   .section-line { flex: 1; height: 1px; background: var(--border); transition: background-color 0.3s ease; }
 
   /* ABOUT */
-  #about { background: var(--bg); }
+  #about { background: var(--surface); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .about-text p { color: var(--muted); line-height: 2; font-size: 0.88rem; margin-bottom: 1.25rem; transition: color 0.3s ease; }
   .about-text p span { color: var(--accent); }
@@ -351,7 +351,6 @@
   .edu-date { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.1em; transition: color 0.3s ease; }
 
   /* SKILLS */
-  #skills { background: var(--surface); }
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
   .skill-category {
     border: 1px solid var(--border);
@@ -407,16 +406,6 @@
 
   html.light-mode .skill-tag:hover { background: rgba(0,102,204,0.15); }
 
-  /* EXPERIENCE */
-  #experience { background: var(--bg); }
-  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); transition: border-color 0.3s ease; }
-  .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-  .exp-org { font-size: 0.72rem; color: var(--muted); transition: color 0.3s ease; }
-  .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; }
-  .exp-points { list-style: none; }
-  .exp-points li { font-size: 0.78rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; transition: color 0.3s ease; }
-  .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
-
   /* PROJECTS */
   #projects { background: var(--surface); }
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
@@ -461,8 +450,16 @@
     background: rgba(0,102,204,0.04);
   }
 
+  /* EXPERIENCE */
+  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); transition: border-color 0.3s ease; }
+  .exp-period { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+  .exp-org { font-size: 0.72rem; color: var(--muted); transition: color 0.3s ease; }
+  .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; }
+  .exp-points { list-style: none; }
+  .exp-points li { font-size: 0.78rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; transition: color 0.3s ease; }
+  .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
   /* CERTS */
-  #certs { background: var(--bg); }
   .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
   .cert-card { border: 1px solid var(--border); padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: all 0.25s; }
   .cert-card:hover { border-color: var(--accent); background: rgba(0,229,255,0.03); }
@@ -474,7 +471,6 @@
   .cert-date { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; }
 
   /* PUBLICATION */
-  #publications { background: var(--surface); }
   .pub-card {
     border: 1px solid var(--border);
     padding: 2rem;
@@ -499,7 +495,7 @@
   .pub-date { font-size: 0.68rem; color: var(--muted); transition: color 0.3s ease; }
 
   /* CONTACT */
-  #contact { text-align: center; padding: 8rem 3rem; background: var(--bg); position: relative; overflow: hidden; }
+  #contact { text-align: center; padding: 8rem 3rem; background: var(--surface); position: relative; overflow: hidden; }
   .contact-glow {
     position: absolute;
     width: 400px; height: 400px;
@@ -533,7 +529,7 @@
   html.light-mode .contact-link:hover { background: rgba(0,102,204,0.04); }
 
   /* FOOTER */
-  footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; transition: border-color 0.3s ease; background: var(--bg); }
+  footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; transition: border-color 0.3s ease; }
   footer p { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; transition: color 0.3s ease; }
 
   /* ANIMATIONS */
@@ -624,7 +620,7 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:no[...]
+      <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </button>
@@ -648,7 +644,7 @@
   <div class="hero-cta">
     <a href="#contact" class="btn btn-outline">Get in Touch</a>
     <a href="cv.pdf" download="Alan_Anto_CV.pdf" class="btn btn-outline">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px[...]
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
         <polyline points="7 10 12 15 17 10"/>
         <line x1="12" y1="15" x2="12" y2="3"/>
@@ -679,8 +675,8 @@
   <div class="about-grid">
     <div class="about-text reveal">
       <p>I'm an AI Engineer, based in <span>Germany</span>, where I'm pursuing my MSc in Artificial Intelligence at Brandenburg University of Technology.</p>
-      <p>My work sits at the intersection of <span>Agentic AI, Large Language Models, and Computer Vision</span>. I specialize in building multi-agent systems, RAG pipelines, and production-grade[...]
-      <p>I hold a B.Tech (Hons.) in AI & Data Science with a <span>9.1/10 GPA</span>, and have earned professional certifications from IBM, AWS, and Microsoft. My work has been published at IEEE [...]
+      <p>My work sits at the intersection of <span>Agentic AI, Large Language Models, and Computer Vision</span>. I specialize in building multi-agent systems, RAG pipelines, and production-grade AI solutions.</p>
+      <p>I hold a B.Tech (Hons.) in AI & Data Science with a <span>9.1/10 GPA</span>, and have earned professional certifications from IBM, AWS, and Microsoft. My work has been published at IEEE conferences.</p>
     </div>
     <div class="reveal">
       <div class="edu-card">
@@ -737,19 +733,19 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">GenAI Tools and Frameworks</div>
       <div class="skill-tags">
-        <span class="skill-tag">LLMs</span><span class="skill-tag">Transformers</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">RAG</span><span class="skill-tag">Prompt E[...]
+        <span class="skill-tag">LLMs</span><span class="skill-tag">Transformers</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">RAG</span><span class="skill-tag">Prompt Engineering</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Agentic AI Frameworks</div>
       <div class="skill-tags">
-        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">BeeAI</span><span class="skill-tag">CrewAI</span><span class="skill-tag">LlamaIndex[...]
+        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">BeeAI</span><span class="skill-tag">CrewAI</span><span class="skill-tag">LlamaIndex</span><span class="skill-tag">Google ADK</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Machine Learning & Deep Learning</div>
       <div class="skill-tags">
-        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">OpenCV</span><span class="skill-tag">Scikit-lear[...]
+        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">OpenCV</span><span class="skill-tag">Scikit-learn</span>
       </div>
     </div>
     <div class="skill-category reveal">
@@ -761,13 +757,13 @@
     <div class="skill-category reveal">
       <div class="skill-cat-title">Cloud & Tools</div>
       <div class="skill-tags">
-        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">IBM WatsonX</span><span class="skill-tag">Docker</span><span class="skill-tag">Gradio</span><[...]
+        <span class="skill-tag">AWS</span><span class="skill-tag">Azure</span><span class="skill-tag">IBM WatsonX</span><span class="skill-tag">Docker</span><span class="skill-tag">Gradio</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Git</span>
       </div>
     </div>
     <div class="skill-category reveal">
       <div class="skill-cat-title">Soft Skills</div>
       <div class="skill-tags">
-        <span class="skill-tag">Leadership</span><span class="skill-tag">Event Management</span><span class="skill-tag">MS office</span><span class="skill-tag">Documentation</span><span class="sk[...]
+        <span class="skill-tag">Leadership</span><span class="skill-tag">Event Management</span><span class="skill-tag">MS office</span><span class="skill-tag">Documentation</span><span class="skill-tag">Time Management</span>
       </div>
     </div>
   </div>
@@ -785,88 +781,88 @@
     <div class="project-card reveal visible">
       <div class="project-num">001 —</div>
       <div class="project-title">Agentic Code Editor</div>
-      <div class="project-desc">Hierarchical multi-agent code editor using Google ADK, orchestrating 8 specialized agents (Code Generation, Debugger, Reviewer, Test Writer, etc.) with an LLM-powe[...]
+      <div class="project-desc">Hierarchical multi-agent code editor using Google ADK, orchestrating 8 specialized agents (Code Generation, Debugger, Reviewer, Test Writer, etc.) with an LLM-powered routing agent for task decomposition.</div>
       <div class="project-stack">
-        <span class="stack-tag">Google ADK</span><span class="stack-tag">Groq API</span><span class="stack-tag">LiteLLM</span><span class="stack-tag">Streamlit</span><span class="stack-tag">Pytho[...]
+        <span class="stack-tag">Google ADK</span><span class="stack-tag">Groq API</span><span class="stack-tag">LiteLLM</span><span class="stack-tag">Streamlit</span><span class="stack-tag">Python</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">002 —</div>
       <div class="project-title">Automotive Graph RAG System</div>
-      <div class="project-desc">Engineered a hybrid Graph-RAG pipeline combining Neo4j knowledge graph and ChromaDB vector store for BMW 7 Series automotive data, modelling vehicles, engines, and[...]
+      <div class="project-desc">Engineered a hybrid Graph-RAG pipeline combining Neo4j knowledge graph and ChromaDB vector store for BMW 7 Series automotive data, modelling vehicles, engines, and features.</div>
       <div class="project-stack">
-        <span class="stack-tag">Neo4j</span><span class="stack-tag">LangGraph</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Gradio</sp[...]
+        <span class="stack-tag">Neo4j</span><span class="stack-tag">LangGraph</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Gradio</span><span class="stack-tag">Docker</span><span class="stack-tag">ollama</span>
       </div>
     </div>
 
     <div class="project-card reveal visible">
       <div class="project-num">003 —</div>
       <div class="project-title">DocChat – Multi-Agent RAG System</div>
-      <div class="project-desc">Improved answer accuracy by 30% by architecting a LangGraph self-correction loop that auto-retries on verified generated response failures. Optimized retrieval by [...]
+      <div class="project-desc">Improved answer accuracy by 30% by architecting a LangGraph self-correction loop that auto-retries on verified generated response failures. Optimized retrieval by 40%.</div>
       <div class="project-stack">
-        <span class="stack-tag">LangGraph</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span><span class="stack-tag">Gradio</spa[...]
+        <span class="stack-tag">LangGraph</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span><span class="stack-tag">Gradio</span><span class="stack-tag">Docker</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">004 —</div>
       <div class="project-title">Autonomous Multi-Agent Travel System</div>
-      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and [...]
+      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and dynamic routing.</div>
       <div class="project-stack">
-        <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">FastAPI</span><span class="stack-tag">React</span><span class="stack-tag">Async</spa[...]
+        <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">FastAPI</span><span class="stack-tag">React</span><span class="stack-tag">Async</span>
       </div>
     </div>
 
     <div class="project-card reveal visible">
   <div class="project-num">005 —</div>
   <div class="project-title">Cognitio – Multi-Modal Lecture Intelligence Engine</div>
-  <div class="project-desc">Developed end-to-end video-to-insight pipeline combining OpenCV scene detection, Groq Llama 4 Scout vision captioning, and Whisper transcription to generate 90% faster[...]
+  <div class="project-desc">Developed end-to-end video-to-insight pipeline combining OpenCV scene detection, Groq Llama 4 Scout vision captioning, and Whisper transcription to generate 90% faster content summaries. Implemented grounded semantic chatbot with temporal anchoring that references exact timestamps, reducing irrelevant context by constraining responses strictly to lecture scope.</div>
   <div class="project-stack">
-    <span class="stack-tag">Groq</span><span class="stack-tag">Llama</span><span class="stack-tag">Whisper</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Streamlit</span><span[...]
+    <span class="stack-tag">Groq</span><span class="stack-tag">Llama</span><span class="stack-tag">Whisper</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Streamlit</span><span class="stack-tag">FastAPI</span><span class="stack-tag">ReportLab</span>
   </div>
 </div>
     
     <div class="project-card reveal">
       <div class="project-num">006 —</div>
       <div class="project-title">AI NutriCoach (NourishBot)</div>
-      <div class="project-desc">Developed a multi-agent nutrition assistant that detects ingredients, generates recipes, and analyzes nutrients using Llama 3 Vision and WatsonX Granite models. De[...]
+      <div class="project-desc">Developed a multi-agent nutrition assistant that detects ingredients, generates recipes, and analyzes nutrients using Llama 3 Vision and WatsonX Granite models. Deploy on web.</div>
       <div class="project-stack">
-        <span class="stack-tag">CrewAI</span><span class="stack-tag">Llama 3 Vision</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Pydantic</span><span class="stack-t[...]
+        <span class="stack-tag">CrewAI</span><span class="stack-tag">Llama 3 Vision</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Pydantic</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">007 —</div>
       <div class="project-title">RAG-Based LinkedIn Icebreaker Tool</div>
-      <div class="project-desc">Developed a RAG-powered profile analysis tool that generates personalized conversation starters from LinkedIn data using LlamaIndex. Integrated IBM WatsonX Granite[...]
+      <div class="project-desc">Developed a RAG-powered profile analysis tool that generates personalized conversation starters from LinkedIn data using LlamaIndex. Integrated IBM WatsonX Granite for text generation.</div>
       <div class="project-stack">
-        <span class="stack-tag">LlamaIndex</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">ProxyCurl</span><span class="[...]
+        <span class="stack-tag">LlamaIndex</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">ProxyCurl</span><span class="stack-tag">FastAPI</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">008 —</div>
       <div class="project-title">Meeting Intelligence Tool</div>
-      <div class="project-desc">Engineered an automated meeting intelligence system that reduced post-meeting documentation time by 90% using Whisper STT + WatsonX summarization. Built a dashboar[...]
+      <div class="project-desc">Engineered an automated meeting intelligence system that reduced post-meeting documentation time by 90% using Whisper STT + WatsonX summarization. Built a dashboard for analytics.</div>
       <div class="project-stack">
-        <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack[...]
+        <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack-tag">Gradio</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">009 —</div>
       <div class="project-title">YouTube Video Summarizer & Q&A</div>
-      <div class="project-desc">Built an end-to-end video summarization and Q&A system that extracts transcripts, preprocesses them, and generates high-quality summaries using WatsonX Llama 3. De[...]
+      <div class="project-desc">Built an end-to-end video summarization and Q&A system that extracts transcripts, preprocesses them, and generates high-quality summaries using WatsonX Llama 3. Deploy web app.</div>
       <div class="project-stack">
-        <span class="stack-tag">WatsonX Llama 3</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">FAISS</span><span class="stack-tag">LangChain</span><span class="stack[...]
+        <span class="stack-tag">WatsonX Llama 3</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">FAISS</span><span class="stack-tag">LangChain</span><span class="stack-tag">Streamlit</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">010 —</div>
       <div class="project-title">SQL & LLM Agent System</div>
-      <div class="project-desc">Built an AI-powered SQL agent that converts natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Configured deterministic a[...]
+      <div class="project-desc">Built an AI-powered SQL agent that converts natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Configured deterministic agent flow.</div>
       <div class="project-stack">
         <span class="stack-tag">WatsonX Granite</span><span class="stack-tag">LangChain</span><span class="stack-tag">MySQL</span><span class="stack-tag">NL-SQL Agents</span>
       </div>
@@ -875,16 +871,16 @@
     <div class="project-card reveal">
       <div class="project-num">011 —</div>
       <div class="project-title">QLoRA-Based Conversational LLM Fine-Tuning</div>
-      <div class="project-desc">Developed a QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved a 95% improvement in model[...]
+      <div class="project-desc">Developed a QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved a 95% improvement in model performance.</div>
       <div class="project-stack">
-        <span class="stack-tag">Mistral-7B</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">PEFT</span><span class="stack-tag">bitsandbytes</span><span class="stack-tag">T[...]
+        <span class="stack-tag">Mistral-7B</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">PEFT</span><span class="stack-tag">bitsandbytes</span><span class="stack-tag">Tokenizers</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-num">012 —</div>
       <div class="project-title">Semantic SQL Injection Detection</div>
-      <div class="project-desc">Developed a semantic detection system using BERT, enabling real-time identification and classification of SQL injection attacks with over 95% accuracy. Integrated [...]
+      <div class="project-desc">Developed a semantic detection system using BERT, enabling real-time identification and classification of SQL injection attacks with over 95% accuracy. Integrated with email alerts.</div>
       <div class="project-stack">
         <span class="stack-tag">BERT</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">SMTP</span>
       </div>
@@ -893,7 +889,7 @@
     <div class="project-card reveal">
       <div class="project-num">013 —</div>
       <div class="project-title">Autonomous Robot — Supermarket Restocking</div>
-      <div class="project-desc">Designed and deployed an autonomous robot system for real-time product detection and restocking in supermarkets, achieving efficient, fully automated workflows. Le[...]
+      <div class="project-desc">Designed and deployed an autonomous robot system for real-time product detection and restocking in supermarkets, achieving efficient, fully automated workflows. Led IEEE publication.</div>
       <div class="project-stack">
         <span class="stack-tag">YOLOv8</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Raspberry Pi</span><span class="stack-tag">Python</span>
       </div>
@@ -902,9 +898,9 @@
     <div class="project-card reveal">
       <div class="project-num">014 —</div>
       <div class="project-title">Aircraft Damage Classification & Captioning</div>
-      <div class="project-desc">Automated aircraft damage assessment with deep learning, enabling rapid classification and captioning for maintenance reporting. Developed VGG16-based classificati[...]
+      <div class="project-desc">Automated aircraft damage assessment with deep learning, enabling rapid classification and captioning for maintenance reporting. Developed VGG16-based classification model.</div>
       <div class="project-stack">
-        <span class="stack-tag">VGG16</span><span class="stack-tag">BLIP</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">NumPy</s[...]
+        <span class="stack-tag">VGG16</span><span class="stack-tag">BLIP</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">NumPy</span>
       </div>
     </div>
 
@@ -926,7 +922,7 @@
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certs">
+<section id="certs" style="background: var(--surface);">
   <div class="section-header reveal">
     <span class="section-num">06.</span>
     <h2 class="section-title">Certifications</h2>
@@ -935,31 +931,31 @@
   <div class="certs-grid">
     <div class="cert-card reveal">
       <div class="cert-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ci[...]
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
       <div><div class="cert-name">IBM RAG and Agentic AI Professional Certificate</div><div class="cert-date">Dec 2025</div></div>
     </div>
     <div class="cert-card reveal">
       <div class="cert-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><pa[...]
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10z"/><path d="M12 6v6l4 2"/></svg>
       </div>
       <div><div class="cert-name">AWS Generative AI for Developers Professional Certificate</div><div class="cert-date">Oct 2025</div></div>
     </div>
     <div class="cert-card reveal">
       <div class="cert-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><re[...]
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"/></svg>
       </div>
       <div><div class="cert-name">Docker Foundations Professional Certificate</div><div class="cert-date">Nov 2025</div></div>
     </div>
     <div class="cert-card reveal">
       <div class="cert-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><re[...]
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
       </div>
       <div><div class="cert-name">IBM AI Engineering Professional Certificate</div><div class="cert-date">Jul 2025</div></div>
     </div>
     <div class="cert-card reveal">
       <div class="cert-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ci[...]
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
       </div>
       <div><div class="cert-name">Microsoft Azure AI Essentials Professional Certificate</div><div class="cert-date">Aug 2025</div></div>
     </div>
@@ -1002,3 +998,63 @@
     sunIcon.style.display = 'none';
     moonIcon.style.display = 'block';
   }
+
+  themeToggle.addEventListener('click', () => {
+    html.classList.toggle('light-mode');
+    const isLight = html.classList.contains('light-mode');
+    sunIcon.style.display = isLight ? 'none' : 'block';
+    moonIcon.style.display = isLight ? 'block' : 'none';
+    storage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX - 6 + 'px';
+    cursor.style.top = e.clientY - 6 + 'px';
+    cursorRing.style.left = e.clientX - 18 + 'px';
+    cursorRing.style.top = e.clientY - 18 + 'px';
+  });
+  document.addEventListener('mousedown', () => cursor.style.transform = 'scale(1.5)');
+  document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
+
+  // Reveal on Scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Scroll to Top
+  const scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollTop.classList.add('visible');
+    } else {
+      scrollTop.classList.remove('visible');
+    }
+  });
+  scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Active Nav Link
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    document.querySelectorAll('section').forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 200) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
