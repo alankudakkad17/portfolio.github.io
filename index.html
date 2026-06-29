@@ -448,8 +448,8 @@
   .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
   /* CERTS */
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-  .cert-card { border: 1px solid var(--border); padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: all 0.25s; }
+  .certs-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .cert-card { flex: 0 1 300px; border: 1px solid var(--border); padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: all 0.25s; }
   .cert-card:hover { border-color: var(--accent); background: rgba(0,229,255,0.03); }
 
   html.light-mode .cert-card:hover { background: rgba(0,102,204,0.03); }
@@ -645,7 +645,7 @@
       <span class="stat-label">Projects</span>
     </div>
     <div class="stat">
-      <span class="stat-num">6</span>
+      <span class="stat-num">8</span>
       <span class="stat-label">Certifications</span>
     </div>
   </div>
@@ -957,6 +957,20 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </div>
       <div><div class="cert-name">Microsoft Azure AI Essentials Professional Certificate</div><div class="cert-date">Aug 2025</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">
+        <!-- Trend line — Machine Learning, DeepLearning.AI -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+      </div>
+      <div><div class="cert-name">Machine Learning Specialization</div><div class="cert-date">DeepLearning.AI</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon">
+        <!-- Code brackets — Python for Everybody, Univ. of Michigan -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div><div class="cert-name">Python for Everybody Specialization</div><div class="cert-date">University of Michigan</div></div>
     </div>
   </div>
 </section>
