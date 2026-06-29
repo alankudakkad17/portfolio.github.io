@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alan Anto — AI Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #050A0E;
@@ -14,7 +14,7 @@
     --accent2: #7B61FF;
     --accent3: #FF6B35;
     --text: #E8F0F5;
-    --muted: #5A7A8A;
+    --muted: #9DB4C0;
     --border: rgba(0,229,255,0.12);
   }
 
@@ -35,31 +35,16 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Space Mono', monospace;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    cursor: none;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  .cursor {
-    width: 12px; height: 12px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease;
-    mix-blend-mode: difference;
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.35s ease;
-    opacity: 0.5;
+  /* Monospace reserved for labels, tags, and numeric accents */
+  .hero-tag, .nav-links a, .stat-label, .skill-tag, .stack-tag,
+  .project-num, .exp-period, .cert-date, .pub-venue,
+  .contact-link, footer p {
+    font-family: 'Space Mono', monospace;
   }
 
   body::before {
@@ -391,7 +376,7 @@
     padding: 0.3rem 0.75rem;
     background: rgba(0,229,255,0.06);
     border: 1px solid rgba(0,229,255,0.15);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     color: var(--text);
     letter-spacing: 0.05em;
     transition: all 0.2s;
@@ -437,11 +422,11 @@
   .project-card:hover::before { transform: scaleX(1); }
   .project-num { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em; margin-bottom: 1rem; transition: color 0.3s ease; }
   .project-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.3; }
-  .project-desc { color: var(--muted); font-size: 0.75rem; line-height: 1.85; margin-bottom: 1.5rem; transition: color 0.3s ease; }
+  .project-desc { color: var(--muted); font-size: 0.8rem; line-height: 1.85; margin-bottom: 1.5rem; transition: color 0.3s ease; }
   .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .stack-tag {
-    padding: 0.2rem 0.6rem;
-    font-size: 0.6rem;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.68rem;
     letter-spacing: 0.08em;
     border: 1px solid var(--border);
     color: var(--accent);
@@ -459,7 +444,7 @@
   .exp-org { font-size: 0.72rem; color: var(--muted); transition: color 0.3s ease; }
   .exp-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; }
   .exp-points { list-style: none; }
-  .exp-points li { font-size: 0.78rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; transition: color 0.3s ease; }
+  .exp-points li { font-size: 0.82rem; color: var(--muted); line-height: 1.8; padding-left: 1.25rem; position: relative; margin-bottom: 0.6rem; transition: color 0.3s ease; }
   .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
   /* CERTS */
@@ -591,8 +576,6 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
     <polyline points="18 15 12 9 6 15"></polyline>
@@ -658,11 +641,11 @@
 
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">13+</span>
+      <span class="stat-num">14</span>
       <span class="stat-label">Projects</span>
     </div>
     <div class="stat">
-      <span class="stat-num">5</span>
+      <span class="stat-num">6</span>
       <span class="stat-label">Certifications</span>
     </div>
   </div>
@@ -711,9 +694,10 @@
     <div>
       <div class="exp-role">AI Engineering Intern</div>
       <ul class="exp-points">
-        <li>Achieved real-time inference at 30 FPS on edge devices by optimizing YOLOv8 object detection models for limited hardware.</li>
-        <li>Improved model robustness by 15% against environmental variations by engineering an automated OpenCV pipeline augmenting 5,000+ training images with noise and rotation injection.</li>
-        <li>Established production-grade baselines for 4 computer vision algorithms by designing a systematic evaluation framework with precision-recall benchmarks under edge constraints.</li>
+        <li>Fine-tuned pretrained YOLOv8 models in PyTorch for edge deployment, optimizing architecture and the inference pipeline to achieve real-time speeds of 30 FPS on resource-constrained hardware.</li>
+        <li>Converted models to ONNX format and applied PyTorch dynamic quantization, reducing model size and inference latency for efficient edge deployment without significant accuracy loss.</li>
+        <li>Curated and annotated a custom dataset of 5,000+ images, ensuring high-quality, diverse training data to support effective fine-tuning.</li>
+        <li>Improved model robustness by 15% through a combined augmentation pipeline using OpenCV and PyTorch transform methods.</li>
       </ul>
     </div>
   </div>
@@ -784,7 +768,7 @@
     <div class="project-card reveal visible">
       <div class="project-num">001 —</div>
       <div class="project-title">Agentic Code Editor</div>
-      <div class="project-desc">Hierarchical multi-agent code editor using Google ADK, orchestrating 8 specialized agents (Code Generation, Debugger, Reviewer, Test Writer, etc.) with an LLM-powered routing agent for task decomposition.</div>
+      <div class="project-desc">Hierarchical multi-agent code editor on Google ADK orchestrating 8 specialized agents (code generation, debugger, reviewer, test writer) via an LLM-powered orchestrator that autonomously routes tasks for end-to-end code synthesis from plain-English input. Cut infrastructure cost to zero with Groq's free tier + LiteLLM — routing heavy reasoning to LLaMA 3.3 70B and light tasks to 3.1 8B — with token-by-token streaming and a reactive Streamlit UI.</div>
       <div class="project-stack">
         <span class="stack-tag">Google ADK</span><span class="stack-tag">Groq API</span><span class="stack-tag">LiteLLM</span><span class="stack-tag">Streamlit</span><span class="stack-tag">Python</span>
       </div>
@@ -793,7 +777,7 @@
     <div class="project-card reveal">
       <div class="project-num">002 —</div>
       <div class="project-title">Automotive Graph RAG System</div>
-      <div class="project-desc">Engineered a hybrid Graph-RAG pipeline combining Neo4j knowledge graph and ChromaDB vector store for BMW 7 Series automotive data, modelling vehicles, engines, and features.</div>
+      <div class="project-desc">Hybrid Graph-RAG pipeline fusing a Neo4j knowledge graph (10 node types, 13 relationships covering BMW 7 Series vehicles, engines, recalls and diagnostic codes) with a ChromaDB vector store, improving retrieval accuracy 40% over flat RAG. An 8-node LangGraph agent with query expansion, dual-layer routing and cross-encoder reranking filters 30 candidates to the top 5, cutting irrelevant context 70% — running fully local on Ollama Llama 3 and Neo4j Community for zero cloud cost.</div>
       <div class="project-stack">
         <span class="stack-tag">Neo4j</span><span class="stack-tag">LangGraph</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Gradio</span><span class="stack-tag">Docker</span><span class="stack-tag">ollama</span>
       </div>
@@ -802,7 +786,7 @@
     <div class="project-card reveal visible">
       <div class="project-num">003 —</div>
       <div class="project-title">DocChat – Multi-Agent RAG System</div>
-      <div class="project-desc">Improved answer accuracy by 30% by architecting a LangGraph self-correction loop that auto-retries on verified generated response failures. Optimized retrieval by 40%.</div>
+      <div class="project-desc">Multi-agent RAG with a LangGraph self-correction loop that auto-retries on verified response failures, lifting answer accuracy 30%. A hybrid retriever fusing BM25 lexical search with ChromaDB dense embeddings cut retrieval-failure rates 40%, shipped as a Dockerized Gradio web app with IBM WatsonX integration for scalable, verified document intelligence.</div>
       <div class="project-stack">
         <span class="stack-tag">LangGraph</span><span class="stack-tag">WatsonX</span><span class="stack-tag">ChromaDB</span><span class="stack-tag">BM25</span><span class="stack-tag">Gradio</span><span class="stack-tag">Docker</span>
       </div>
@@ -811,7 +795,7 @@
     <div class="project-card reveal">
       <div class="project-num">004 —</div>
       <div class="project-title">Autonomous Multi-Agent Travel System</div>
-      <div class="project-desc">Engineered a multi-agent travel planner, achieving 100% automated data synthesis by architecting a hierarchical BeeAI framework with specialized expert agents and dynamic routing.</div>
+      <div class="project-desc">Hierarchical BeeAI travel planner with specialized expert agents and handoff protocols achieving 100% automated itinerary synthesis. An async FastAPI backend streams real-time agent trajectories and tool events over SSE to a React UI, cutting perceived latency 65%, while BeeAI RequirementAgents enforce conditional tool logic and maintain state across complex handoffs.</div>
       <div class="project-stack">
         <span class="stack-tag">BeeAI</span><span class="stack-tag">Custom Tools</span><span class="stack-tag">FastAPI</span><span class="stack-tag">React</span><span class="stack-tag">Async</span>
       </div>
@@ -820,7 +804,7 @@
     <div class="project-card reveal visible">
   <div class="project-num">005 —</div>
   <div class="project-title">Cognitio – Multi-Modal Lecture Intelligence Engine</div>
-  <div class="project-desc">Developed end-to-end video-to-insight pipeline combining OpenCV scene detection, Groq Llama 4 Scout vision captioning, and Whisper transcription to generate 90% faster content summaries. Implemented grounded semantic chatbot with temporal anchoring that references exact timestamps, reducing irrelevant context by constraining responses strictly to lecture scope.</div>
+  <div class="project-desc">End-to-end lecture intelligence pipeline pairing OpenCV frame extraction and PySceneDetect scene boundaries with Groq Llama 4 Scout vision captioning, plus Whisper word-level transcription aligned to each scene — cutting note-taking time 90% on hour-long lectures. A context-grounded chatbot answers strictly from the generated summary and cites exact timestamps to prevent off-topic hallucination, with three input modes (upload, YouTube, audio) and four export formats (PDF, Markdown, JSON, SRT).</div>
   <div class="project-stack">
     <span class="stack-tag">Groq</span><span class="stack-tag">Llama</span><span class="stack-tag">Whisper</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Streamlit</span><span class="stack-tag">FastAPI</span><span class="stack-tag">ReportLab</span>
   </div>
@@ -829,7 +813,7 @@
     <div class="project-card reveal">
       <div class="project-num">006 —</div>
       <div class="project-title">AI NutriCoach (NourishBot)</div>
-      <div class="project-desc">Developed a multi-agent nutrition assistant that detects ingredients, generates recipes, and analyzes nutrients using Llama 3 Vision and WatsonX Granite models. Deploy on web.</div>
+      <div class="project-desc">Multi-agent nutrition assistant (CrewAI) that detects ingredients, generates recipes and analyzes nutrients using Llama 3 Vision and WatsonX Granite. Dual workflows handle recipe generation and meal nutrient analysis with dietary filters, calorie goals and macro/micro estimation, with Pydantic-structured outputs surfaced through a Gradio interface.</div>
       <div class="project-stack">
         <span class="stack-tag">CrewAI</span><span class="stack-tag">Llama 3 Vision</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Pydantic</span><span class="stack-tag">Gradio</span>
       </div>
@@ -838,7 +822,7 @@
     <div class="project-card reveal">
       <div class="project-num">007 —</div>
       <div class="project-title">RAG-Based LinkedIn Icebreaker Tool</div>
-      <div class="project-desc">Developed a RAG-powered profile analysis tool that generates personalized conversation starters from LinkedIn data using LlamaIndex. Integrated IBM WatsonX Granite for text generation.</div>
+      <div class="project-desc">RAG-powered profile analysis tool that generates personalized conversation starters from LinkedIn data using LlamaIndex, with IBM WatsonX Granite for generation and Slate embeddings for semantic vector search. An end-to-end pipeline pulls live profiles via the ProxyCurl API, builds vector stores, and serves profile-specific insights through a Gradio UI.</div>
       <div class="project-stack">
         <span class="stack-tag">LlamaIndex</span><span class="stack-tag">WatsonX Granite</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">ProxyCurl</span><span class="stack-tag">FastAPI</span>
       </div>
@@ -847,7 +831,7 @@
     <div class="project-card reveal">
       <div class="project-num">008 —</div>
       <div class="project-title">Meeting Intelligence Tool</div>
-      <div class="project-desc">Engineered an automated meeting intelligence system that reduced post-meeting documentation time by 90% using Whisper STT + WatsonX summarization. Built a dashboard for analytics.</div>
+      <div class="project-desc">Automated meeting intelligence system combining Whisper STT with WatsonX summarization to cut post-meeting documentation time 90%. An NLP pipeline with audio preprocessing, speaker diarization and LLM-based context extraction produces structured summaries, decisions and action items — reviewable and exportable from an interactive dashboard.</div>
       <div class="project-stack">
         <span class="stack-tag">Whisper</span><span class="stack-tag">WatsonX</span><span class="stack-tag">Speaker Diarization</span><span class="stack-tag">NLP Pipeline</span><span class="stack-tag">Gradio</span>
       </div>
@@ -856,7 +840,7 @@
     <div class="project-card reveal">
       <div class="project-num">009 —</div>
       <div class="project-title">YouTube Video Summarizer & Q&A</div>
-      <div class="project-desc">Built an end-to-end video summarization and Q&A system that extracts transcripts, preprocesses them, and generates high-quality summaries using WatsonX Llama 3. Deploy web app.</div>
+      <div class="project-desc">End-to-end video summarization and Q&A system that extracts and preprocesses transcripts and generates high-quality summaries with WatsonX Llama 3. A semantic RAG pipeline using chunking, Slate embeddings and FAISS indexing delivers accurate, context-aware answers, unified with summarization in a single Gradio interface.</div>
       <div class="project-stack">
         <span class="stack-tag">WatsonX Llama 3</span><span class="stack-tag">Slate Embeddings</span><span class="stack-tag">FAISS</span><span class="stack-tag">LangChain</span><span class="stack-tag">Streamlit</span>
       </div>
@@ -865,7 +849,7 @@
     <div class="project-card reveal">
       <div class="project-num">010 —</div>
       <div class="project-title">SQL & LLM Agent System</div>
-      <div class="project-desc">Built an AI-powered SQL agent that converts natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Configured deterministic agent flow.</div>
+      <div class="project-desc">AI-powered SQL agent that converts natural-language questions into executable MySQL queries using LangChain and Granite-3-2-8B. Configured both deterministic and creative LLM workflows so a single agent architecture handles structured data queries and general Q&A across structured and unstructured sources.</div>
       <div class="project-stack">
         <span class="stack-tag">WatsonX Granite</span><span class="stack-tag">LangChain</span><span class="stack-tag">MySQL</span><span class="stack-tag">NL-SQL Agents</span>
       </div>
@@ -874,7 +858,7 @@
     <div class="project-card reveal">
       <div class="project-num">011 —</div>
       <div class="project-title">QLoRA-Based Conversational LLM Fine-Tuning</div>
-      <div class="project-desc">Developed a QLoRA SFT pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation. Achieved a 95% improvement in model performance.</div>
+      <div class="project-desc">QLoRA supervised fine-tuning pipeline for Mistral-7B enabling efficient conversational tuning for YouTube comment response automation, with a 95% gain in response accuracy via LoRA adapter fusion and 4-bit quantization. Built end-to-end with Transformers, PEFT, Datasets, bitsandbytes and the Trainer API on a custom comment dataset.</div>
       <div class="project-stack">
         <span class="stack-tag">Mistral-7B</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">PEFT</span><span class="stack-tag">bitsandbytes</span><span class="stack-tag">Tokenizers</span>
       </div>
@@ -883,7 +867,7 @@
     <div class="project-card reveal">
       <div class="project-num">012 —</div>
       <div class="project-title">Semantic SQL Injection Detection</div>
-      <div class="project-desc">Developed a semantic detection system using BERT, enabling real-time identification and classification of SQL injection attacks with over 95% accuracy. Integrated with email alerts.</div>
+      <div class="project-desc">Semantic intrusion-detection system using BERT for real-time identification and classification of SQL injection attacks at over 95% accuracy. Integrated into a web interface with automated email alerts to speed administrator response, deployed end-to-end with Python, TensorFlow, SQL and SMTP.</div>
       <div class="project-stack">
         <span class="stack-tag">BERT</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">SMTP</span>
       </div>
@@ -892,7 +876,7 @@
     <div class="project-card reveal">
       <div class="project-num">013 —</div>
       <div class="project-title">Autonomous Robot — Supermarket Restocking</div>
-      <div class="project-desc">Designed and deployed an autonomous robot system for real-time product detection and restocking in supermarkets, achieving efficient, fully automated workflows. Led IEEE publication.</div>
+      <div class="project-desc">Autonomous wheeled robot for real-time product detection and restocking in supermarkets with fully automated workflows. Integrated YOLOv8 for live object detection (90% accuracy) and used OpenCV, Raspberry Pi and line-following algorithms for robust navigation and control — the work led to an IEEE publication.</div>
       <div class="project-stack">
         <span class="stack-tag">YOLOv8</span><span class="stack-tag">OpenCV</span><span class="stack-tag">Raspberry Pi</span><span class="stack-tag">Python</span>
       </div>
@@ -901,7 +885,7 @@
     <div class="project-card reveal">
       <div class="project-num">014 —</div>
       <div class="project-title">Aircraft Damage Classification & Captioning</div>
-      <div class="project-desc">Automated aircraft damage assessment with deep learning, enabling rapid classification and captioning for maintenance reporting. Developed VGG16-based classification model.</div>
+      <div class="project-desc">Automated aircraft damage assessment with deep learning for rapid classification and maintenance-report captioning. Combines a VGG16 classifier with a Transformer-based BLIP captioning model at 92% accuracy, implemented end-to-end with Python, TensorFlow, Hugging Face and NumPy.</div>
       <div class="project-stack">
         <span class="stack-tag">VGG16</span><span class="stack-tag">BLIP</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Hugging Face</span><span class="stack-tag">NumPy</span>
       </div>
@@ -932,6 +916,13 @@
     <div class="section-line"></div>
   </div>
   <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-icon">
+        <!-- Flame — PyTorch, DeepLearning.AI -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+      </div>
+      <div><div class="cert-name">PyTorch Professional Certificate</div><div class="cert-date">DeepLearning.AI · Jun 2026</div></div>
+    </div>
     <div class="cert-card reveal">
       <div class="cert-icon">
         <!-- Medal / award ribbon — IBM RAG & Agentic AI -->
@@ -1014,18 +1005,6 @@
     moonIcon.style.display = isLight ? 'block' : 'none';
     storage.setItem('theme', isLight ? 'light' : 'dark');
   });
-
-  // Custom Cursor
-  const cursor = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX - 6 + 'px';
-    cursor.style.top = e.clientY - 6 + 'px';
-    cursorRing.style.left = e.clientX - 18 + 'px';
-    cursorRing.style.top = e.clientY - 18 + 'px';
-  });
-  document.addEventListener('mousedown', () => cursor.style.transform = 'scale(1.5)');
-  document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
 
   // Reveal on Scroll
   const observer = new IntersectionObserver((entries) => {
