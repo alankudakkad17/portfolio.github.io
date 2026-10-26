@@ -1,0 +1,6 @@
+node_modules
+dist
+*.local
+
+# Original source photos (optimised copies live in public/)
+/ChatGPT Image*.png
