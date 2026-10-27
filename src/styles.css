@@ -315,6 +315,8 @@ a.link-btn:hover { color: var(--accent); border-color: var(--accent); }
 .contact h2 { color: #fff; font-size: clamp(2rem, 4vw, 2.44rem); letter-spacing: -0.03em; }
 .contact p { margin-top: 0.75rem; font-size: 1.0625rem; max-width: 32em; }
 .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+.contact-email { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.contact-email .btn-outline-light { flex-shrink: 0; }
 .btn-light { background: #fff; color: #121a2b; border-color: #fff; }
 .btn-light:hover { background: #e3e8f6; border-color: #e3e8f6; color: #121a2b; }
 .btn-outline-light { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.28); }
@@ -383,6 +385,11 @@ a.link-btn:hover { color: var(--accent); border-color: var(--accent); }
   .filters::-webkit-scrollbar { display: none; }
   .chip { flex-shrink: 0; }
   .contact .btn-light { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .contact-email { flex-wrap: nowrap; }
+  .contact-email .btn-light { min-width: 0; }
+  .copy-btn { padding-left: 0.8rem; padding-right: 0.8rem; }
+  /* Icon-only on phones; label stays available to screen readers */
+  .copy-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .footer-inner { flex-direction: column; gap: 0.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -199,10 +199,12 @@ export function Contact() {
           <p>{profile.availability}. Email is the quickest way to reach me.</p>
         </div>
         <div className="contact-actions">
-          <a className="btn btn-light" href={`mailto:${profile.email}`}><MailIcon /> {profile.email}</a>
-          <button className="btn btn-outline-light" onClick={copy} aria-live="polite">
-            <CopyIcon /> {copied ? 'Email copied' : 'Copy email'}
-          </button>
+          <div className="contact-email">
+            <a className="btn btn-light" href={`mailto:${profile.email}`}><MailIcon /> {profile.email}</a>
+            <button className="btn btn-outline-light copy-btn" onClick={copy} aria-live="polite" title="Copy email">
+              <CopyIcon /> <span className="copy-label">{copied ? 'Email copied' : 'Copy email'}</span>
+            </button>
+          </div>
           <div className="contact-social">
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"><LinkedInIcon /> LinkedIn</a>
             <a href={profile.github} target="_blank" rel="noopener noreferrer"><GitHubIcon /> GitHub</a>
