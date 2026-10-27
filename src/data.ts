@@ -257,7 +257,7 @@ export const projects: Project[] = [
     categories: ['Vision'],
     featured: true,
     icon: 'plane',
-    github: 'https://github.com/alankudakkad17/Classification-and-Captioning-Aircraft-Damage',
+    github: 'https://github.com/alankudakkad17/Aircraft-Damage-Classification-And-Captioning',
   },
 ];
 
@@ -270,6 +270,7 @@ export interface Publication {
   date: string;
   /** Links — paste URLs between the quotes; empty ones are hidden on the live site. */
   paper?: string;
+  doi?: string;
 }
 
 export const publications: Publication[] = [
@@ -280,6 +281,7 @@ export const publications: Publication[] = [
     logo: '',
     date: 'Jun 2025',
     paper: 'https://ieeexplore.ieee.org/document/11042674',
+    doi: '10.1109/ICTEST58456.2025.11042674',
   },
 ];
 
