@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { profile } from '../data';
 import type { Theme } from '../hooks';
-import { DownloadIcon, MoonIcon, SunIcon } from './Icons';
+import { ChevronIcon, DownloadIcon, MoonIcon, SunIcon } from './Icons';
 
 interface Props {
   sections: { id: string; label: string }[];
@@ -10,37 +10,41 @@ interface Props {
   onToggleTheme: () => void;
 }
 
-export function Nav({ sections, active, theme, onToggleTheme }: Props) {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
+function useScrolledPast(px: number) {
+  const [past, setPast] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setPast(window.scrollY > px);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [px]);
+  return past;
+}
+
+export function Nav({ sections, active, theme, onToggleTheme }: Props) {
+  const scrolled = useScrolledPast(8);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  // On narrow screens the section tags scroll sideways; keep the current one in view.
+  useEffect(() => {
+    const list = listRef.current;
+    const link = list?.querySelector<HTMLAnchorElement>('a.active');
+    if (!list || !link || list.scrollWidth <= list.clientWidth) return;
+    list.scrollTo({ left: link.offsetLeft - list.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
+  }, [active]);
 
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        <a href="#top" className="brand" onClick={() => setOpen(false)}>
-          <span className="brand-mark">AA</span>
-          <span className="brand-name">{profile.name}</span>
-        </a>
-
-        <nav aria-label="Main">
-          <ul id="nav-menu" className={`nav-links ${open ? 'open' : ''}`}>
+        <nav aria-label="Sections">
+          <ul ref={listRef} className="nav-links">
             {sections.map((s) => (
               <li key={s.id}>
-                <a href={`#${s.id}`} className={active === s.id ? 'active' : undefined} onClick={() => setOpen(false)}>
+                <a href={`#${s.id}`} className={active === s.id ? 'active' : undefined}>
                   {s.label}
                 </a>
               </li>
             ))}
-            <li className="nav-cv-mobile">
-              <a href={profile.cv} download="Alan_Anto_CV.pdf">Download CV</a>
-            </li>
           </ul>
         </nav>
 
@@ -56,17 +60,23 @@ export function Nav({ sections, active, theme, onToggleTheme }: Props) {
         <a className="btn btn-small nav-cv" href={profile.cv} download="Alan_Anto_CV.pdf">
           <DownloadIcon size={15} /> CV
         </a>
-
-        <button
-          className="menu-btn"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="nav-menu"
-          onClick={() => setOpen(!open)}
-        >
-          <span /><span /><span />
-        </button>
       </div>
     </header>
+  );
+}
+
+/** Floating button that appears after scrolling down and returns to the top. */
+export function BackToTop() {
+  const visible = useScrolledPast(600);
+  return (
+    <button
+      className={`to-top ${visible ? 'show' : ''}`}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Back to top"
+      title="Back to top"
+      tabIndex={visible ? 0 : -1}
+    >
+      <span className="to-top-icon"><ChevronIcon size={18} /></span>
+    </button>
   );
 }

@@ -1,6 +1,6 @@
 import { profile } from './data';
 import { useActiveSection, useTheme } from './hooks';
-import { Nav } from './components/Nav';
+import { BackToTop, Nav } from './components/Nav';
 import { Projects } from './components/Projects';
 import { About, Contact, Certifications, Education, Experience, Hero, Publications, Section, Skills } from './components/Sections';
 
@@ -38,7 +38,7 @@ export default function App() {
         <Section id="skills" title="Skills" tone="alt">
           <Skills />
         </Section>
-        <Section id="projects" title="Projects" intro="Filter by area.">
+        <Section id="projects" title="Projects" intro="Choose an area to see its projects.">
           <Projects />
         </Section>
         <Section id="publications" title="Publications" tone="alt">
@@ -55,6 +55,7 @@ export default function App() {
           <span>{profile.location}</span>
         </div>
       </footer>
+      <BackToTop />
     </>
   );
 }

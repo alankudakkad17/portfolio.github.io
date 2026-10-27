@@ -45,6 +45,10 @@ export interface TimelineItem {
   period: string;
   title: string;
   org: string;
+  /** Short name shown in the logo badge until a logo file is added. */
+  orgShort: string;
+  /** Optional logo, e.g. 'logos/btu.svg' (place the file in public/logos/). */
+  logo?: string;
   kind: 'work' | 'education';
   points?: string[];
   note?: string;
@@ -56,6 +60,8 @@ export const timeline: TimelineItem[] = [
     period: '2025 – present',
     title: 'MSc Artificial Intelligence',
     org: 'BTU Cottbus-Senftenberg, Germany',
+    orgShort: 'BTU',
+    logo: '',
     kind: 'education',
     note: 'Graduate studies in machine learning and AI systems.',
   },
@@ -63,6 +69,8 @@ export const timeline: TimelineItem[] = [
     period: 'Summer 2023',
     title: 'AI Engineering Intern',
     org: 'Indian Institute of Information Technology, Kerala',
+    orgShort: 'IIIT',
+    logo: '',
     kind: 'work',
     points: [
       'Fine-tuned YOLOv8 in PyTorch for edge devices, reaching 30 FPS real-time inference on constrained hardware.',
@@ -75,6 +83,8 @@ export const timeline: TimelineItem[] = [
     period: '2020 – 2024',
     title: 'B.Tech (Hons.) AI & Data Science',
     org: 'APJ Abdul Kalam Technological University, India',
+    orgShort: 'KTU',
+    logo: '',
     kind: 'education',
     note: 'Minor in Robotics. GPA 9.1 / 10.',
   },
@@ -255,6 +265,8 @@ export interface Publication {
   title: string;
   venue: string;
   venueShort: string;
+  /** Optional logo for the venue, e.g. 'logos/ieee.svg' (file in public/logos/). */
+  logo?: string;
   date: string;
   /** Links — paste URLs between the quotes; empty ones are hidden on the live site. */
   paper?: string;
@@ -266,6 +278,7 @@ export const publications: Publication[] = [
     title: 'Autonomous Wheeled Robot for Intelligent Supermarket Restocking',
     venue: 'IEEE 2nd International Conference on Trends in Engineering Systems & Technologies (ICTEST)',
     venueShort: 'IEEE ICTEST',
+    logo: '',
     date: 'Jun 2025',
     paper: '',
     doi: '',
@@ -282,6 +295,15 @@ export const skills: { group: string; items: string[] }[] = [
   { group: 'Databases', items: ['MySQL', 'ChromaDB', 'FAISS', 'Neo4j', 'PostgreSQL'] },
   { group: 'Soft Skills', items: ['Leadership', 'MS Office', 'Documentation', 'Time Management'] },
 ];
+
+/** Short issuer names for the logo badges; add a file path to show a real logo instead. */
+export const issuers: Record<string, { short: string; logo?: string }> = {
+  'DeepLearning.AI': { short: 'DL', logo: '' },
+  IBM: { short: 'IBM', logo: '' },
+  AWS: { short: 'AWS', logo: '' },
+  Docker: { short: 'Dk', logo: '' },
+  Microsoft: { short: 'MS', logo: '' },
+};
 
 export const certifications: { name: string; issuer: string; year: string }[] = [
   { name: 'PyTorch Professional Certificate', issuer: 'DeepLearning.AI', year: '2026' },

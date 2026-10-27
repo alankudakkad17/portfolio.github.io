@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
-import { about, certifications, profile, publications, skills, timeline } from '../data';
+import { about, certifications, issuers, profile, publications, skills, timeline } from '../data';
+import { OrgLogo } from './Logo';
 import { ArrowIcon, CopyIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon, PaperIcon } from './Icons';
 import { LinkRow } from './LinkRow';
 
@@ -88,14 +89,15 @@ export function Experience() {
       {timeline.filter((t) => t.kind === 'work').map((t) => (
         <article key={t.title} className="entry">
           <div className="entry-head">
+            <OrgLogo src={t.logo} short={t.orgShort} name={t.org} />
             <div>
               <h3>{t.title}</h3>
               <p className="entry-org">{t.org}</p>
             </div>
             <span className="entry-date">{t.period}</span>
           </div>
-          {t.points && <ul className="points">{t.points.map((p) => <li key={p}>{p}</li>)}</ul>}
-          {t.tags && <ul className="tags">{t.tags.map((x) => <li key={x}>{x}</li>)}</ul>}
+          {t.points && <ul className="points indented">{t.points.map((p) => <li key={p}>{p}</li>)}</ul>}
+          {t.tags && <ul className="tags indented">{t.tags.map((x) => <li key={x}>{x}</li>)}</ul>}
         </article>
       ))}
     </div>
@@ -108,13 +110,14 @@ export function Education() {
       {timeline.filter((t) => t.kind === 'education').map((t) => (
         <article key={t.title} className="entry">
           <div className="entry-head">
+            <OrgLogo src={t.logo} short={t.orgShort} name={t.org} />
             <div>
               <h3>{t.title}</h3>
               <p className="entry-org">{t.org}</p>
             </div>
             <span className="entry-date">{t.period}</span>
           </div>
-          {t.note && <p className="entry-note">{t.note}</p>}
+          {t.note && <p className="entry-note indented">{t.note}</p>}
         </article>
       ))}
     </div>
@@ -140,6 +143,7 @@ export function Publications() {
       {publications.map((p) => (
         <article key={p.title} className="entry">
           <div className="entry-head">
+            <OrgLogo src={p.logo} short="IEEE" name={p.venueShort} />
             <div>
               <h3>{p.title}</h3>
               <p className="entry-org">{p.venue}</p>
@@ -147,6 +151,7 @@ export function Publications() {
             <span className="entry-date">{p.date}</span>
           </div>
           <LinkRow
+            className="indented"
             links={[
               { label: 'Read paper', href: p.paper, icon: <PaperIcon /> },
               { label: 'DOI', href: p.doi, icon: <ArrowIcon /> },
@@ -163,6 +168,7 @@ export function Certifications() {
     <ul className="cert-list">
       {certifications.map((c) => (
         <li key={c.name}>
+          <OrgLogo src={issuers[c.issuer]?.logo} short={issuers[c.issuer]?.short ?? c.issuer.slice(0, 2)} name={c.issuer} size="sm" />
           <span className="cert-name">{c.name}</span>
           <span className="cert-issuer">{c.issuer}</span>
           <span className="cert-year">{c.year}</span>
