@@ -121,10 +121,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   background: var(--brand-bg); color: #fff;
 }
 .brand-name { font-size: 1rem; letter-spacing: -0.01em; }
-/* Section links centred in the bar; theme + CV buttons on the right */
-.nav-inner { position: relative; justify-content: flex-end; }
-.nav-inner > nav { position: absolute; left: 50%; transform: translateX(-50%); }
-.nav-links { display: flex; gap: 0.15rem; list-style: none; margin: 0; padding: 0; }
+/* Section links start on the content's left edge; theme + CV buttons on the right */
+.nav-inner > nav { margin-right: auto; }
+.nav-links { display: flex; gap: 0.15rem; list-style: none; margin: 0 0 0 -0.7rem; padding: 0; }
 .nav-links a {
   display: block; padding: 0.4rem 0.7rem;
   font-size: 0.875rem; font-weight: 500; color: var(--muted);
@@ -333,7 +332,8 @@ a.link-btn:hover { color: var(--accent); border-color: var(--accent); }
 @media (max-width: 1100px) {
   /* Section tags in the bar, scrolling sideways */
   .nav-inner { gap: 0.75rem; }
-  .nav-inner > nav { position: static; transform: none; flex: 1; min-width: 0; }
+  .nav-inner > nav { flex: 1; min-width: 0; }
+  .nav-links { margin: 0; }
   .nav-links {
     overflow-x: auto; scrollbar-width: none; gap: 0.35rem;
     -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
