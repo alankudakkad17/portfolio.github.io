@@ -26,7 +26,7 @@ export const profile = {
   role: 'AI Engineer',
   tagline:
     'I build agentic LLM systems, retrieval pipelines and computer-vision models, end to end: from data and models to the app people use.',
-  location: 'Cottbus, Germany',
+  location: 'Germany',
   email: 'alan.anto.ai.2002@gmail.com',
   github: 'https://github.com/alankudakkad17',
   linkedin: 'https://www.linkedin.com/in/alan-anto-998431214/',
@@ -77,7 +77,7 @@ export const timeline: TimelineItem[] = [
       'Exported to ONNX and applied dynamic quantization to cut model size and latency with minimal accuracy loss.',
       'Built and annotated a 5,000+ image dataset; an OpenCV/PyTorch augmentation pipeline improved robustness by 15%.',
     ],
-    tags: ['PyTorch', 'YOLOv8', 'ONNX', 'OpenCV'],
+    tags: ['PyTorch', 'YOLOv8', 'ONNX', 'OpenCV', 'Quantization', 'Image Processing'],
   },
   {
     period: '2020 – 2024',
@@ -86,7 +86,7 @@ export const timeline: TimelineItem[] = [
     orgShort: 'KTU',
     logo: '',
     kind: 'education',
-    note: 'Minor in Robotics. GPA 9.1 / 10.',
+    note: 'Honors in Bioinformatics. Minor in Robotics. GPA 9.1 / 10.',
   },
 ];
 
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     categories: ['Agents'],
     featured: true,
     icon: 'code',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Code-Mate',
   },
   {
     title: 'Automotive Graph RAG System',
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     categories: ['RAG', 'Agents'],
     featured: true,
     icon: 'graph',
-    github: '',
+    github: 'https://github.com/alankudakkad17/AutoRAG',
   },
   {
     title: 'DocChat – Multi-Agent RAG System',
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     categories: ['RAG', 'Agents'],
     featured: true,
     icon: 'doc',
-    github: '',
+    github: 'https://github.com/alankudakkad17/DocChat',
   },
   {
     title: 'Autonomous Multi-Agent Travel System',
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     categories: ['Agents'],
     featured: true,
     icon: 'plane',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Multi-Agent-Travel-Planner',
   },
   {
     title: 'Cognitio – Multi-Modal Lecture Intelligence Engine',
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     categories: ['Vision', 'NLP'],
     featured: true,
     icon: 'video',
-    github: '',
+    github: 'https://github.com/alankudakkad17/video-audio-lecture-Assistant',
   },
   {
     title: 'Post-Training & Quantization-Aware Model Optimization',
@@ -290,7 +290,7 @@ export const skills: { group: string; items: string[] }[] = [
   { group: 'GenAI Tools and Frameworks', items: ['LLMs', 'Transformers', 'Hugging Face', 'RAG', 'QLoRA', 'Prompt Engineering'] },
   { group: 'Agentic AI Frameworks', items: ['LangChain', 'LangGraph', 'BeeAI', 'CrewAI', 'LlamaIndex', 'Google ADK'] },
   { group: 'Machine Learning & Deep Learning', items: ['PyTorch', 'TensorFlow', 'Keras', 'ONNX', 'OpenCV', 'Scikit-learn'] },
-  { group: 'Web Development Stack', items: ['React', 'FastAPI', 'WebSockets', 'Flask'] },
+  { group: 'Web Development Stack', items: ['React', 'FastAPI', 'WebSockets', 'SSE'] },
   { group: 'Cloud & Tools', items: ['AWS', 'Azure', 'Docker', 'Gradio', 'Git', 'IBM WatsonX'] },
   { group: 'Databases', items: ['MySQL', 'ChromaDB', 'FAISS', 'Neo4j', 'PostgreSQL'] },
   { group: 'Soft Skills', items: ['Leadership', 'MS Office', 'Documentation', 'Time Management'] },
