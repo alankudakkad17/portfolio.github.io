@@ -148,7 +148,7 @@ export const projects: Project[] = [
     tags: ['Python', 'PyTorch', 'CNN', 'BLIP', 'INT8', 'PTQ', 'QAT'],
     categories: ['ML/DL', 'Vision'],
     icon: 'sliders',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Quantization-project',
   },
   {
     title: 'Neural Network Pruning for Model Compression',
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     tags: ['Python', 'PyTorch', 'ResNet18', 'Sparsity', 'Transfer Learning'],
     categories: ['ML/DL', 'Vision'],
     icon: 'graph',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Prunning',
   },
   {
     title: 'Transformer-Based Neural Machine Translation',
@@ -176,7 +176,7 @@ export const projects: Project[] = [
     categories: ['Agents', 'Vision'],
     featured: true,
     icon: 'leaf',
-    github: '',
+    github: 'https://github.com/alankudakkad17/AI-Nutrition-Coach',
   },
   {
     title: 'RAG-Based LinkedIn Icebreaker Tool',
@@ -186,7 +186,7 @@ export const projects: Project[] = [
     categories: ['RAG'],
     featured: true,
     icon: 'chat',
-    github: '',
+    github: 'https://github.com/alankudakkad17/AI-Icebreaker-Bot-with-IBM-Granite-3.0-LlamaIndex',
   },
   {
     title: 'Meeting Intelligence Tool',
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     categories: ['RAG', 'NLP'],
     featured: true,
     icon: 'video',
-    github: '',
+    github: 'https://github.com/alankudakkad17/AI_MEETING_ASSISTANT',
   },
   {
     title: 'SQL & LLM Agent System',
@@ -226,7 +226,7 @@ export const projects: Project[] = [
     categories: ['ML/DL'],
     featured: true,
     icon: 'sliders',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Natural-Language-SQL-Agent-with-IBM-Granite-LangChain',
   },
   {
     title: 'Semantic SQL Injection Detection',
@@ -236,7 +236,7 @@ export const projects: Project[] = [
     categories: ['ML/DL', 'NLP'],
     featured: true,
     icon: 'shield',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Mini_Project',
   },
   {
     title: 'Autonomous Robot — Supermarket Restocking',
@@ -247,7 +247,7 @@ export const projects: Project[] = [
     featured: true,
     badge: 'IEEE ICTEST 2025',
     icon: 'robot',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Major_Project',
   },
   {
     title: 'Aircraft Damage Classification & Captioning',
@@ -257,7 +257,7 @@ export const projects: Project[] = [
     categories: ['Vision'],
     featured: true,
     icon: 'plane',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Classification-and-Captioning-Aircraft-Damage',
   },
 ];
 
@@ -270,7 +270,6 @@ export interface Publication {
   date: string;
   /** Links — paste URLs between the quotes; empty ones are hidden on the live site. */
   paper?: string;
-  doi?: string;
 }
 
 export const publications: Publication[] = [
@@ -280,8 +279,7 @@ export const publications: Publication[] = [
     venueShort: 'IEEE ICTEST',
     logo: '',
     date: 'Jun 2025',
-    paper: '',
-    doi: '',
+    paper: 'https://ieeexplore.ieee.org/document/11042674',
   },
 ];
 
