@@ -196,7 +196,7 @@ export const projects: Project[] = [
     categories: ['NLP'],
     featured: true,
     icon: 'mic',
-    github: '',
+    github: 'https://github.com/alankudakkad17/AI_MEETING_ASSISTANT',
   },
   {
     title: 'YouTube Video Summarizer & Q&A',
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     categories: ['RAG', 'NLP'],
     featured: true,
     icon: 'video',
-    github: 'https://github.com/alankudakkad17/AI_MEETING_ASSISTANT',
+    github: 'https://github.com/alankudakkad17/YouTube_Video_Summarizer-QA_Bot',
   },
   {
     title: 'SQL & LLM Agent System',
@@ -216,7 +216,7 @@ export const projects: Project[] = [
     categories: ['Agents'],
     featured: true,
     icon: 'db',
-    github: '',
+    github: 'https://github.com/alankudakkad17/Natural-Language-SQL-Agent-with-IBM-Granite-LangChain',
   },
   {
     title: 'QLoRA-Based Conversational LLM Fine-Tuning',
@@ -226,7 +226,7 @@ export const projects: Project[] = [
     categories: ['ML/DL'],
     featured: true,
     icon: 'sliders',
-    github: 'https://github.com/alankudakkad17/Natural-Language-SQL-Agent-with-IBM-Granite-LangChain',
+    github: 'https://github.com/alankudakkad17/Qlora_LLM_Finetunning',
   },
   {
     title: 'Semantic SQL Injection Detection',
