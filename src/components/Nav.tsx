@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { profile } from '../data';
 import type { Theme } from '../hooks';
-import { ChevronIcon, DownloadIcon, MoonIcon, SunIcon } from './Icons';
+import { ChevronIcon, MoonIcon, SunIcon } from './Icons';
 
 interface Props {
   sections: { id: string; label: string }[];
@@ -57,9 +56,6 @@ export function Nav({ sections, active, theme, onToggleTheme }: Props) {
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </button>
 
-        <a className="btn btn-small nav-cv" href={profile.cv} download="Alan_Anto_CV.pdf">
-          <DownloadIcon size={15} /> CV
-        </a>
       </div>
     </header>
   );
