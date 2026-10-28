@@ -1,25 +1,25 @@
 /* ==========================================================================
    Tokens
-   Paper #f8f9fb · Band #eff1f5 · Card #ffffff · Ink #121a2b · Slate #5a6475
+   Paper #f1f3f6 · Band #e3e7ed · Card #ffffff · Ink #121a2b · Slate #5a6475
    Rule #e1e4ea · Cobalt #2b4acb
    ========================================================================== */
 :root,
 :root[data-theme='light'] {
-  --bg: #f8f9fb;
-  --bg-alt: #eff1f5;
+  --bg: #f1f3f6;
+  --bg-alt: #e3e7ed;
   --surface: #ffffff;
   --text: #343c4b;
   --heading: #121a2b;
   --muted: #5a6475;
-  --border: #e1e4ea;
-  --border-strong: #cfd4dc;
+  --border: #d6dbe3;
+  --border-strong: #c3c9d3;
   --accent: #2b4acb;
   --accent-dark: #2139a6;
   --accent-soft: #eaeefb;
   --on-accent: #ffffff;
-  --nav-bg: rgba(248, 249, 251, 0.97);
+  --nav-bg: rgba(241, 243, 246, 0.97);
   --tag-text: #3b4456;
-  --tag-bg: #f1f3f7;
+  --tag-bg: #eceff4;
   --badge-text: #2139a6;
   --badge-bg: #eaeefb;
   --chip-on: #121a2b;
