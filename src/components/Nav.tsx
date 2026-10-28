@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import type { Theme } from '../hooks';
+import { useEffect, useRef } from 'react';
+import { useScrolledPast, type Theme } from '../hooks';
 import { ChevronIcon, MoonIcon, SunIcon } from './Icons';
 
 interface Props {
@@ -7,17 +7,6 @@ interface Props {
   active: string;
   theme: Theme;
   onToggleTheme: () => void;
-}
-
-function useScrolledPast(px: number) {
-  const [past, setPast] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setPast(window.scrollY > px);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [px]);
-  return past;
 }
 
 export function Nav({ sections, active, theme, onToggleTheme }: Props) {
@@ -29,7 +18,7 @@ export function Nav({ sections, active, theme, onToggleTheme }: Props) {
     const list = listRef.current;
     const link = list?.querySelector<HTMLAnchorElement>('a.active');
     if (!list || !link || list.scrollWidth <= list.clientWidth) return;
-    list.scrollTo({ left: link.offsetLeft - list.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
+    list.scrollLeft = link.offsetLeft - list.clientWidth / 2 + link.offsetWidth / 2;
   }, [active]);
 
   return (

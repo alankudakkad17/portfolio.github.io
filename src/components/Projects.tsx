@@ -17,22 +17,48 @@ function Description({ text, id }: { text: string; id: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const [open, setOpen] = useState(false);
   const [overflows, setOverflows] = useState(false);
+  const clampedHeight = useRef(0);
+  const startHeight = useRef<number | null>(null);
 
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el || open) return;
-    const measure = () => setOverflows(el.scrollHeight > el.clientHeight + 1);
+    const measure = () => {
+      clampedHeight.current = el.clientHeight;
+      setOverflows(el.scrollHeight > el.clientHeight + 1);
+    };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
   }, [open]);
 
+  // Animate the height between the clamped and full text.
+  useLayoutEffect(() => {
+    const el = ref.current;
+    const from = startHeight.current;
+    startHeight.current = null;
+    if (!el || from === null || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const to = open ? el.scrollHeight : clampedHeight.current;
+    el.style.height = `${from}px`;
+    void el.offsetHeight; // commit the start height before transitioning
+    el.style.height = `${to}px`;
+    const done = () => { el.style.height = ''; };
+    el.addEventListener('transitionend', done, { once: true });
+    const fallback = window.setTimeout(done, 400);
+    return () => window.clearTimeout(fallback);
+  }, [open]);
+
+  const toggle = () => {
+    startHeight.current = ref.current?.offsetHeight ?? null;
+    setOpen(!open);
+  };
+
   return (
     <div className="desc">
       <p id={id} ref={ref} className={open ? undefined : 'clamped'}>{text}</p>
       {(overflows || open) && (
-        <button className="read-more" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
+        <button className="read-more" aria-expanded={open} aria-controls={id} onClick={toggle}>
           {open ? 'Show less' : 'Read more'}
         </button>
       )}
