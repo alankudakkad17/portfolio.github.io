@@ -62,8 +62,7 @@ export function Hero() {
 export function About() {
   const facts = [
     { k: 'Based in', v: profile.location },
-    { k: 'Studying', v: 'MSc Artificial Intelligence, BTU Cottbus' },
-    { k: 'Focus', v: 'Agentic AI, retrieval (RAG), computer vision' },
+    { k: 'Focus', v: 'Agentic AI, GenAI, LLMs and deep learning' },
     { k: 'Published', v: 'IEEE ICTEST 2025' },
   ];
   return (

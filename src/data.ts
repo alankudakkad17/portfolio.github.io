@@ -25,7 +25,7 @@ export const profile = {
   name: 'Alan Anto',
   role: 'AI Engineer',
   tagline:
-    'I build agentic LLM systems, retrieval pipelines and computer-vision models, end to end: from data and models to the app people use.',
+    'I build agentic LLM systems, retrieval pipelines and Deep learning models, end to end: from data and models to the app people use.',
   location: 'Germany',
   email: 'alan.anto.ai.2002@gmail.com',
   github: 'https://github.com/alankudakkad17',
@@ -37,8 +37,7 @@ export const profile = {
 };
 
 export const about: string[] = [
-  "I'm an AI engineer based in Germany, currently studying for an **MSc in Artificial Intelligence at BTU Cottbus**. Most of my recent work is in **agentic AI and retrieval**: multi-agent systems built with LangGraph and Google ADK, hybrid vector and knowledge-graph RAG, and the FastAPI and React plumbing that makes them usable.",
-  'Before that I worked on **computer vision for edge devices** — fine-tuning and quantizing YOLO models to run in real time on constrained hardware. My undergraduate robotics project was published at **IEEE ICTEST 2025**.',
+  'I am an AI Engineer based in Germany, currently pursuing my **MSc in Artificial Intelligence at BTU Cottbus**. My work bridges deep learning research and production software, specializing in **autonomous multi-agent systems**, **hybrid RAG engines** backed by vector stores and knowledge graphs, and covering the **full deep learning lifecycle**—from training models on data to advanced deployment and optimization techniques. I ship complete, scalable AI products built',
 ];
 
 export interface TimelineItem {
@@ -73,11 +72,12 @@ export const timeline: TimelineItem[] = [
     logo: '',
     kind: 'work',
     points: [
-      'Fine-tuned YOLOv8 in PyTorch for edge devices, reaching 30 FPS real-time inference on constrained hardware.',
-      'Exported to ONNX and applied dynamic quantization to cut model size and latency with minimal accuracy loss.',
-      'Built and annotated a 5,000+ image dataset; an OpenCV/PyTorch augmentation pipeline improved robustness by 15%.',
+      'Fine-tuned pretrained YOLOv8 (PyTorch) on a custom-curated dataset of 5,000+ annotated images, optimizing for real-time inference on resource-constrained edge hardware.',
+      'Tracked experiments and logged performance metrics across training runs using MLflow, enabling systematic comparison of model versions and informed decision-making during the optimization process.',
+      'Achieved 30 FPS end-to-end inference throughput by exporting models to ONNX and applying PyTorch dynamic quantization, reducing model size and latency with minimal accuracy loss.',
+      'Built a custom data augmentation pipeline combining OpenCV and PyTorch transforms, improving model robustness by 15% across varied real-world conditions.',
     ],
-    tags: ['PyTorch', 'YOLOv8', 'ONNX', 'OpenCV', 'Quantization', 'Image Processing'],
+    tags: ['PyTorch', 'YOLOv8', 'ONNX', 'OpenCV', 'MLflow', 'Quantization', 'Image Processing'],
   },
   {
     period: '2020 – 2024',
@@ -287,11 +287,11 @@ export const publications: Publication[] = [
 
 export const skills: { group: string; items: string[] }[] = [
   { group: 'Languages', items: ['Python', 'SQL', 'C++', 'TypeScript (React)'] },
-  { group: 'GenAI Tools and Frameworks', items: ['LLMs', 'Transformers', 'Hugging Face', 'RAG', 'QLoRA', 'Prompt Engineering'] },
-  { group: 'Agentic AI Frameworks', items: ['LangChain', 'LangGraph', 'BeeAI', 'CrewAI', 'LlamaIndex', 'Google ADK'] },
-  { group: 'Machine Learning & Deep Learning', items: ['PyTorch', 'TensorFlow', 'Keras', 'ONNX', 'OpenCV', 'Scikit-learn'] },
-  { group: 'Web Development Stack', items: ['React', 'FastAPI', 'WebSockets', 'SSE'] },
-  { group: 'Cloud & Tools', items: ['AWS', 'Azure', 'Docker', 'Gradio', 'Git', 'IBM WatsonX'] },
+  { group: 'GenAI Tools and Frameworks', items: ['LLMs', 'Transformers', 'Hugging Face', 'RAG', 'Prompt Engineering'] },
+  { group: 'Agentic AI Frameworks', items: ['LangChain', 'LangGraph', 'BeeAI', 'CrewAI', 'LlamaIndex', 'Google ADK', 'MCP', 'NeMo'] },
+  { group: 'Machine Learning & Deep Learning', items: ['PyTorch', 'TensorFlow', 'Keras', 'ONNX', 'Scikit-learn', 'QLoRA', 'Quantization', 'Prunning'] },
+  { group: 'Web Development Stack', items: ['React', 'FastAPI', 'WebSockets', 'SSE', 'RESTAPI', 'Gradio'] },
+  { group: 'Cloud & Devops', items: ['AWS', 'Azure', 'Docker', 'Github Actions', 'Git', 'IBM WatsonX'] },
   { group: 'Databases', items: ['MySQL', 'ChromaDB', 'FAISS', 'Neo4j', 'PostgreSQL'] },
   { group: 'Soft Skills', items: ['Leadership', 'MS Office', 'Documentation', 'Time Management'] },
 ];
