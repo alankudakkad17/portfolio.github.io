@@ -218,7 +218,7 @@ section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); bo
 .entry-org { margin-top: 0.25rem; color: var(--muted); }
 .entry-date { flex-shrink: 0; font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .entry-note { margin-top: 0.75rem; color: var(--heading); }
-.points { margin: 1rem 0 0; padding-left: 1.1rem; max-width: 46em; }
+.points { margin: 1rem 0 0; padding-left: 1.1rem; }
 .points li { margin-bottom: 0.45rem; }
 .points li::marker { color: var(--muted); }
 
