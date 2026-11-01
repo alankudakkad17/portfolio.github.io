@@ -115,7 +115,7 @@ export const projects: Project[] = [
     title: 'Self-Correcting RAG(NeMo)',
     summary:
       'Built a self-correcting RAG system using NVIDIA Nemotron, NIM, and NeMo Retriever, combining BM25 and dense embeddings with RRF and reranking. Implemented multi-hop query planning, claim-level verification, web fact-checking, and rule-based retries with evidence-based abstention, secured by NeMo Guardrails and deployed via FastAPI and Streamlit.',
-    tags: ['NeMo Agent Toolkit', 'Nemotron', 'NVIDIA NIM', 'NeMo Guardrails', 'LangGraph', 'FAISS', 'ChromaDB', 'Tavily', 'FastAPI', 'Streamlit', 'RAGAS', 'Git'],
+    tags: ['NeMo Agent Toolkit', 'Nemotron', 'NVIDIA NIM', 'NeMo Guardrails', 'LangGraph', 'FAISS', 'ChromaDB', 'FastAPI', 'Streamlit', 'RAGAS', 'Git'],
     categories: ['RAG', 'Agents'],
     featured: true,
     icon: 'doc',
