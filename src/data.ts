@@ -112,6 +112,16 @@ export const projects: Project[] = [
     github: 'https://github.com/alankudakkad17/AutoRAG',
   },
   {
+    title: 'Self-Correcting RAG(NeMo)',
+    summary:
+      'Built a self-correcting RAG system using NVIDIA Nemotron, NIM, and NeMo Retriever, combining BM25 and dense embeddings with RRF and reranking. Implemented multi-hop query planning, claim-level verification, web fact-checking, and rule-based retries with evidence-based abstention, secured by NeMo Guardrails and deployed via FastAPI and Streamlit.',
+    tags: ['NeMo Agent Toolkit', 'Nemotron', 'NVIDIA NIM', 'NeMo Guardrails', 'LangGraph', 'FAISS', 'ChromaDB', 'Tavily', 'FastAPI', 'Streamlit', 'RAGAS', 'Git'],
+    categories: ['RAG', 'Agents'],
+    featured: true,
+    icon: 'doc',
+    github: 'https://github.com/alankudakkad17/Self_Correcting_RAG_NeMo',
+  },
+  {
     title: 'DocChat – Multi-Agent RAG System',
     summary:
       'Multi-agent RAG with a LangGraph self-correction loop that auto-retries on verified response failures, lifting answer accuracy 30%. A hybrid retriever fusing BM25 lexical search with ChromaDB dense embeddings cut retrieval-failure rates 40%, shipped as a Dockerized Gradio web app with IBM WatsonX integration for scalable, verified document intelligence.',
