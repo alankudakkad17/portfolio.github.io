@@ -37,7 +37,7 @@ export const profile = {
 };
 
 export const about: string[] = [
-  'I am an AI Engineer based in Germany, currently pursuing my **MSc in Artificial Intelligence at BTU Cottbus**. My work bridges deep learning research and production software, specializing in **autonomous multi-agent systems**, **hybrid RAG engines** backed by vector stores and knowledge graphs, and covering the **full deep learning lifecycle**—from training models on data to advanced deployment and optimization techniques. I ship complete, scalable AI products built',
+  'I am an AI Engineer based in Germany, currently pursuing my **MSc in Artificial Intelligence at BTU Cottbus**. My work bridges deep learning research and production software, specializing in **autonomous multi-agent systems**, **hybrid RAG engines** backed by vector stores and knowledge graphs, and covering the **full deep learning lifecycle**from training models on data to advanced deployment and optimization techniques. I ship complete, scalable AI products built',
 ];
 
 export interface TimelineItem {
