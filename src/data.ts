@@ -141,6 +141,16 @@ export const projects: Project[] = [
     icon: 'plane',
     github: 'https://github.com/alankudakkad17/Multi-Agent-Travel-Planner',
   },
+    {
+    title: 'Agent Evaluation Framework',
+    summary:
+      'Customer-support refund agent built with LangChain and evaluated with DeepEval on 7 agentic metrics: task completion, step efficiency, plan quality, plan adherence, tool correctness, argument correctness and answer correctness. Scores the full trace (tool calls, arguments and reasoning) across 7 refund scenarios, not just the final answer, with a Streamlit dashboard for results, per-case drill-down and live chat with the agent.',
+    tags: ['LangChain', 'DeepEval', 'Groq', 'Streamlit', 'LLM Evaluation'],
+    categories: ['Agents'],
+    featured: true,
+    icon: 'graph',
+    github: 'https://github.com/alankudakkad17/Agent-Eval',
+  },
   {
     title: 'Cognitio – Multi-Modal Lecture Intelligence Engine',
     summary:
@@ -297,7 +307,7 @@ export const publications: Publication[] = [
 
 export const skills: { group: string; items: string[] }[] = [
   { group: 'Languages', items: ['Python', 'SQL', 'C++', 'TypeScript (React)'] },
-  { group: 'GenAI Tools and Frameworks', items: ['LLMs', 'Transformers', 'Hugging Face', 'RAG', 'Prompt Engineering'] },
+  { group: 'GenAI Tools and Frameworks', items: ['LLMs', 'Transformers', 'Hugging Face', 'RAG', 'Prompt Engineering', 'DeepEval'] },
   { group: 'Agentic AI Frameworks', items: ['LangChain', 'LangGraph', 'BeeAI', 'CrewAI', 'LlamaIndex', 'Google ADK', 'MCP', 'NeMo'] },
   { group: 'Machine Learning & Deep Learning', items: ['PyTorch', 'TensorFlow', 'Keras', 'ONNX', 'Scikit-learn', 'QLoRA', 'Quantization', 'Prunning'] },
   { group: 'Web Development Stack', items: ['React', 'FastAPI', 'WebSockets', 'SSE', 'RESTAPI', 'Gradio'] },
